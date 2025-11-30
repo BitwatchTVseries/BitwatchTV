@@ -6,6 +6,10 @@
 <title>BitWatchTV Official</title>
 
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         margin: 0;
         font-family: Arial, sans-serif;
@@ -127,8 +131,19 @@
 <script>
 function toggleMenu() {
     const menu = document.getElementById("menu");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll("nav a");
+    const menu = document.getElementById("menu");
+
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            menu.style.display = "none"; // auto close
+        });
+    });
+});
 </script>
 </head>
 
@@ -191,7 +206,7 @@ function toggleMenu() {
 
     <div class="card">
         <h3>🟧 CHAIN BUILDER (CB)</h3>
-        Requirement: 30 direct Block Miner<br>
+        Requirement: 25 direct Starter (UPDATED)<br>
         Earnings: 2 USDT per Starter Package<br><br>
         <b style="color:#4da3ff;">🔥 Earn up to Infinity Level</b>
     </div>
