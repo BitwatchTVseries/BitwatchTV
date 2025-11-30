@@ -3,224 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BitWatchTV</title>
+<title>BitWatchTV Official</title>
 
 <style>
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: #000;
+        background: #0c0f26;
         color: white;
     }
 
-    /* Header */
+    /* HEADER */
     header {
-        background: #000;
-        padding: 20px;
+        background: #0f1a3a;
+        padding: 15px 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid #222;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
-    .logo {
-        font-size: 26px;
+    .logo-text {
+        font-size: 22px;
         font-weight: bold;
-        color: #ff3b3b; /* SUBTLE RED ONLY */
+        color: #4da3ff;
     }
 
-    /* Navigation */
-    nav ul {
-        list-style: none;
-        display: flex;
-        gap: 25px;
+    /* MENU */
+    nav {
+        display: none;
+        flex-direction: column;
+        background: #0f1a3a;
+        width: 100%;
+        padding: 10px 0;
     }
 
     nav a {
         color: white;
         text-decoration: none;
-        font-size: 18px;
+        padding: 12px 20px;
+        display: block;
     }
 
-    /* Mobile Menu Button */
+    nav a:hover {
+        background: #1b2a55;
+    }
+
     .menu-btn {
-        display: none;
-        flex-direction: column;
+        font-size: 28px;
         cursor: pointer;
-    }
-
-    .menu-btn div {
-        width: 28px;
-        height: 3px;
-        background: white;
-        margin: 5px 0;
-    }
-
-    /* Mobile Menu */
-    @media (max-width: 768px) {
-        nav ul {
-            display: none;
-            flex-direction: column;
-            background: #111;
-            padding: 20px;
-            position: absolute;
-            right: 20px;
-            top: 70px;
-            width: 180px;
-            border: 1px solid #222;
-        }
-        nav ul.show {
-            display: flex;
-        }
-        .menu-btn {
-            display: flex;
-        }
-    }
-
-    /* Hero Section */
-    .hero {
-        text-align: center;
-        padding: 80px 20px;
-    }
-
-    .hero-title {
-        font-size: 40px;
-        font-weight: bold;
-        margin-bottom: 30px;
-    }
-
-    .watch-btn {
-        background: #ff3b3b; /* SUBTLE RED */
-        border: none;
-        padding: 18px 40px;
-        font-size: 22px;
-        border-radius: 10px;
         color: white;
-        cursor: pointer;
+    }
+
+    /* SECTIONS */
+    section {
+        padding: 40px 20px;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    h2 {
+        color: #4da3ff;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    /* RANK CARDS */
+    .card {
+        background: #101832;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        border-left: 5px solid #4da3ff;
+    }
+
+    /* WATCH NOW BUTTON */
+    .watch-btn {
+        background: #4da3ff;
+        color: white;
+        padding: 14px 28px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
         display: inline-flex;
         align-items: center;
         gap: 10px;
+        margin-top: 20px;
     }
 
     .watch-btn:hover {
-        background: #d62c2c;
+        background: #1f75d8;
     }
 
-    /* FB Button */
+    /* SOCIAL BUTTON */
     .fb-btn {
-        margin-top: 40px;
         background: #1877f2;
-        padding: 15px 30px;
+        padding: 12px 20px;
         border-radius: 50px;
-        font-size: 20px;
         color: white;
         display: inline-flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
         text-decoration: none;
-    }
-
-    .fb-icon {
-        background: white;
-        color: #1877f2;
         font-weight: bold;
-        border-radius: 50%;
-        padding: 5px 10px;
-        font-size: 18px;
     }
 
-    /* Section Titles */
-    h2 {
-        color: #ff3b3b; /* subtle red title */
-        padding-left: 20px;
+    .fb-btn:hover {
+        background: #0d5fcc;
     }
 
-    /* Rankings Boxes */
-    .rank-box {
-        border: 1px solid #ff3b3b;
+    /* FOOTER */
+    footer {
+        text-align: center;
         padding: 20px;
-        margin: 20px;
-        border-radius: 10px;
-        background: #111;
-    }
-
-    .rank-title {
-        font-size: 22px;
-        font-weight: bold;
-        color: #ff3b3b;
-    }
-
-    /* Token Section */
-    .token-box {
-        border: 1px solid #ff3b3b;
-        padding: 20px;
-        margin: 20px;
-        border-radius: 10px;
-        background: #111;
+        background: #0f1a3a;
+        margin-top: 40px;
+        color: #4da3ff;
     }
 </style>
 
 <script>
-    function toggleMenu() {
-        document.getElementById("nav-menu").classList.toggle("show");
-    }
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
 </script>
-
 </head>
+
 <body>
 
 <header>
-    <div class="logo">BITWATCHTV</div>
-
-    <nav>
-        <div class="menu-btn" onclick="toggleMenu()">
-            <div></div><div></div><div></div>
-        </div>
-        <ul id="nav-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#watch">Watch</a></li>
-            <li><a href="#community">Community</a></li>
-            <li><a href="#rankings">Rankings</a></li>
-            <li><a href="#token">BTW Token</a></li>
-        </ul>
-    </nav>
+    <div class="logo-text">BITWATCHTV</div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </header>
 
-<section class="hero" id="home">
-    <div class="hero-title">Earn While Watching Movies</div>
-    <button class="watch-btn" onclick="window.location.href='https://iwatch.space'">
-        ▶ Watch Now
-    </button>
+<nav id="menu">
+    <a href="#earn">Ways to Earn</a>
+    <a href="#ranks">Ranks</a>
+    <a href="#token">BTW Token</a>
+    <a href="#community">Community</a>
+</nav>
 
-    <a class="fb-btn" id="community"
-       href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT">
-        <span class="fb-icon">f</span> Join Our Community
+<!-- HERO SECTION -->
+<section style="text-align:center;">
+    <h1>Welcome to BitWatchTV</h1>
+    <p>Earn unlimited while watching movies.</p>
+
+    <a href="https://iwatch.space/" class="watch-btn">
+        ▶ Watch Now
     </a>
 </section>
 
-<h2 id="rankings">BitWatchTV Rankings</h2>
+<!-- EARNING SECTION -->
+<section id="earn">
+    <h2>🔥 BITWATCHTV — WAYS TO EARN 🔥</h2>
 
-<div class="rank-box">
-    <div class="rank-title">Starter Miner (SM)</div>
-    20 USDT Package • 25 Codes • Unlimited Level Earnings
-</div>
+    <p style="text-align:center;">Unilevel Infinity Program</p>
 
-<div class="rank-box">
-    <div class="rank-title">Chain Builder (CB)</div>
-    Requirement: 30 Block Miners • Earn 2 USDT per Starter Package
-</div>
+    <div class="card">
+        <h3>📌 LEVEL INCOME</h3>
+        • Level 1: <b>2 USDT</b><br>
+        • Level 2 – Level 5: <b>1 USDT each level</b>
+    </div>
+</section>
 
-<div class="rank-box">
-    <div class="rank-title">Master Validator (MV)</div>
-    Requirement: 100 Block Miners • Earn 4 USDT per Starter Package
-</div>
+<!-- RANKS SECTION -->
+<section id="ranks">
+    <h2>📊 RANKS & PACKAGES</h2>
 
-<h2 id="token">BTW Token</h2>
+    <div class="card">
+        <h3>🟦 STARTER MINER (SM) — 20 USDT</h3>
+        • 25 codes<br>
+        • Potential Value: 25 × ₱100 = ₱2,500
+    </div>
 
-<div class="token-box">
-    <div class="rank-title">BTW TOKEN</div>
-    Earn BTW tokens while watching movies · Utility ready for BitWatchTV platform.
-</div>
+    <div class="card">
+        <h3>🟩 BLOCK MINER (BM)</h3>
+        Requirement: 30 direct Starter<br>
+        Earnings: 1 USDT per Starter (∞)
+    </div>
+
+    <div class="card">
+        <h3>🟧 CHAIN BUILDER (CB)</h3>
+        Requirement: 30 direct Block Miner<br>
+        Earnings: 2 USDT per Starter (∞)
+    </div>
+
+    <div class="card">
+        <h3>🟥 MASTER VALIDATOR (MV)</h3>
+        Requirement: 20 direct Chain Builder<br>
+        Earnings: 3 USDT per Starter (∞)
+    </div>
+
+    <div class="card">
+        <h3>👑 GENESIS VALIDATOR (GV)</h3>
+        Earn up to 5% monthly bonus<br>
+        300 codes × ₱100 = ₱30,000<br>
+        Minimum Share: 200 USDT
+    </div>
+</section>
+
+<!-- BTW TOKEN SECTION -->
+<section id="token">
+    <h2>💠 ABOUT BTW TOKEN</h2>
+
+    <div class="card">
+        <h3>Utility & Benefits</h3>
+        • Earn BTW Token while watching movies<br>
+        • Utility inside BitWatchTV Ecosystem<br>
+        • Redeem for rewards<br>
+        • Transparent + community-driven token
+    </div>
+
+    <div class="card">
+        <h3>📍 ROADMAP</h3>
+        Phase 1 — Token Concept<br>
+        Phase 2 — Smart Contract<br>
+        Phase 3 — Wallet Integration<br>
+        Phase 4 — Watch-to-Earn Rewards<br>
+        Phase 5 — Marketplace Use<br>
+        Phase 6 — Full Ecosystem Expansion
+    </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community" style="text-align:center;">
+    <h2>Join Our Community</h2>
+
+    <a href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT" 
+       class="fb-btn" target="_blank">
+       👍 Join FB Group
+    </a>
+</section>
+
+<footer>
+    © 2025 BitWatchTV — All Rights Reserved
+</footer>
 
 </body>
 </html>
