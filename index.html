@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BitWatchTV — Watch • Earn • Enjoy</title>
+    <title>BitWatchTV Official</title>
 
     <style>
         body {
@@ -12,6 +13,7 @@
             background: #0d0d0d;
             color: #ffffff;
             font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         header {
@@ -21,27 +23,36 @@
             font-size: 26px;
             font-weight: bold;
             color: #00ccff;
+            position: sticky;
+            top: 0;
+            z-index: 999;
         }
 
         nav {
             background: #000;
             padding: 10px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
             border-bottom: 1px solid #222;
         }
 
         nav a {
             color: #00ccff;
-            margin: 0 12px;
-            font-weight: bold;
             text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid #00ccff;
+        }
+
+        nav a:hover {
+            background: #00ccff;
+            color: #000;
         }
 
         .section {
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
             border-bottom: 1px solid #222;
         }
@@ -71,155 +82,154 @@
             color: #00ccff;
             font-weight: bold;
         }
+
+        .qr-box img {
+            width: 180px;
+            margin-top: 20px;
+            border: 3px solid #00ccff;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
 
 <header>🎬 BITWATCHTV — WATCH • EARN • ENJOY</header>
 
+<!-- NAVIGATION -->
 <nav>
-    <a href="#about">About</a>
-    <a href="#earn">Earnings</a>
+    <a href="#home">Home</a>
+    <a href="#earn">Ways to Earn</a>
     <a href="#token">BTW Token</a>
-    <a href="#whitepaper">Whitepaper</a>
     <a href="#staking">Staking</a>
+    <a href="#whitepaper">Whitepaper</a>
     <a href="#roadmap">Roadmap</a>
     <a href="#community">Community</a>
 </nav>
 
-<!-- HERO SECTION -->
-<div class="section">
+<!-- HOME -->
+<div class="section" id="home">
     <h2>The First Filipino Watch-and-Earn Entertainment Platform</h2>
-    <p class="big">
-        No pairing. No matching. <br>
-        Earn real rewards just by watching.
-    </p>
-    <p>
-        📱 ₱100/month subscription • 🎞 Unlimited Movies & Series <br>
-        💸 Infinity Earnings • 🪙 BTW Token Coming Soon
-    </p>
+    <p class="big">No pairing. No matching. Earn real rewards just by watching.</p>
+
+    <p>📱 ₱100/month subscription • 🎞 Unlimited Movies & Series <br>
+       💸 Infinity Earnings • 🪙 BTW Token</p>
 
     <a href="https://iwatch.space/index.php" class="btn" target="_blank">START WATCHING</a>
-    <a href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT" class="btn" target="_blank">JOIN COMMUNITY</a>
+    <a href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share" class="btn" target="_blank">JOIN COMMUNITY</a>
+
+    <div class="qr-box">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://iwatch.space/index.php" alt="QR Code">
+    </div>
 </div>
 
-<!-- ABOUT -->
-<div class="section" id="about">
-    <h2>What Is BitWatchTV?</h2>
-    <p>
-        BitWatchTV is a digital entertainment and rewards ecosystem where you can watch movies,
-        share the platform, and earn unlimited income without complicated pairing systems.
-    </p>
-</div>
-
-<!-- EARNINGS -->
+<!-- WAYS TO EARN -->
 <div class="section" id="earn">
-    <h2>🔥 Ways to Earn in BitWatchTV 🔥</h2>
+    <h2>🔥 BITWATCHTV — WAYS TO EARN 🔥</h2>
 
     <h3>Unilevel Infinity Program</h3>
-    <p>
+    <p><b>📌 LEVEL INCOME</b><br>
         • Level 1: 2 USDT<br>
-        • Level 2–5: 1 USDT each level
-    </p>
+        • Level 2–Level 5: 1 USDT each level</p>
 
-    <h3>Starter Miner (SM) — 20 USDT</h3>
-    <p>Includes 25 codes • Potential Value: ₱2,500</p>
+    <h3>🟦 STARTER MINER (SM) — 20 USDT</h3>
+    <p>Package Includes:<br>
+       • 25 codes<br>
+       • Potential Value: ₱2,500</p>
 
-    <h3>Block Miner (BM)</h3>
-    <p>30 directs • Earn 1 USDT per Starter Package</p>
+    <h3>🟩 BLOCK MINER (BM)</h3>
+    <p>Requirement: 30 direct Starter<br>
+       Earnings: 1 USDT per Starter Package (Infinity)</p>
 
-    <h3>Chain Builder (CB)</h3>
-    <p>25 direct Block Miners • Earn 2 USDT per Starter Package</p>
+    <h3>🟧 CHAIN BUILDER (CB)</h3>
+    <p>Requirement: 30 direct Block Miner<br>
+       Earnings: 2 USDT per Starter Package (Infinity)</p>
 
-    <h3>Master Validator (MV)</h3>
-    <p>20 direct Chain Builders • Earn 3 USDT per Starter Package</p>
+    <h3>🟥 MASTER VALIDATOR (MV)</h3>
+    <p>Requirement: 20 direct Chain Builder<br>
+       Earnings: 3 USDT per Starter Package (Infinity)</p>
 
-    <h3>Genesis Validator (GV)</h3>
-    <p>Premium investor rank • Earn up to 5% monthly • 200 USDT min</p>
+    <h3>👑 GENESIS VALIDATOR (GV)</h3>
+    <p>Benefits:<br>
+        • Earn up to 5% monthly<br>
+        • 300 codes (₱30,000 value)<br>
+        • Minimum 200 USDT</p>
+
+    <p class="big">Unlimited Earnings. No pairing. No matching.</p>
 </div>
 
 <!-- BTW TOKEN -->
 <div class="section" id="token">
-    <h2>🚀 BTW Token</h2>
+    <h2>🚀 BTW TOKEN — OFFICIAL UTILITY OF BITWATCHTV</h2>
 
-    <p class="big">The utility token powering the BitWatchTV ecosystem.</p>
+    <p><b>Token Name:</b> BitWatchTV<br>
+       <b>Symbol:</b> BTW<br>
+       <b>Total Supply:</b> 1,000,000,000 BTW<br>
+       <b>Network:</b> BSC (Binance Smart Chain)</p>
 
-    <p>
-        <b>Token Name:</b> BitWatchTV<br>
-        <b>Symbol:</b> BTW<br>
-        <b>Total Supply:</b> 1,000,000,000 (1B)<br>
-        <b>Network:</b> Binance Smart Chain (BSC)
-    </p>
-
-    <p>
-        BTW uses include:<br>
-        • Subscription Payments<br>
-        • Rewards Conversion<br>
+    <p>Utility:<br>
         • Movie Credits<br>
-        • Marketplace (soon)<br>
-        • App Utility & Upgrades
-    </p>
-</div>
+        • Subscription Payment<br>
+        • Rewards Conversion<br>
+        • Marketplace<br>
+        • App Purchases</p>
 
-<!-- WHITEPAPER -->
-<div class="section" id="whitepaper">
-    <h2>📄 BTW Token Whitepaper (Simplified)</h2>
-
-    <h3>1. Introduction</h3>
-    <p>BTW Token integrates blockchain technology with real entertainment utility.</p>
-
-    <h3>2. Purpose</h3>
-    <p>To serve as the main payment and reward unit inside BitWatchTV.</p>
-
-    <h3>3. Tokenomics</h3>
-    <p>
-        • Total Supply: 1B<br>
-        • Fair launch design<br>
-        • Transparent allocation
-    </p>
-
-    <h3>4. Utility</h3>
-    <p>Movie access, membership, rewards, and marketplace.</p>
-
-    <h3>5. Sustainability</h3>
-    <p>Growth depends on real users, not hype.</p>
+    <p class="big">BTW = Entertainment + Blockchain Utility</p>
 </div>
 
 <!-- STAKING -->
 <div class="section" id="staking">
-    <h2>🪙 BTW Staking Program</h2>
+    <h2>💰 BTW STAKING PROGRAM</h2>
 
+    <p><b>Lock-in Period:</b> 6 Months<br>
+       <b>Minimum Stake:</b> None (0 minimum)<br>
+       <b>Daily Reward:</b> 0.01% daily</p>
+
+    <p>Stake more, earn more. Automated rewards.</p>
+</div>
+
+<!-- WHITEPAPER -->
+<div class="section" id="whitepaper">
+    <h2>📄 BTW WHITEPAPER</h2>
+
+    <p>The official BTW Token whitepaper outlines:</p>
     <p>
-        ✔ 6 Months Lock-in<br>
-        ✔ No Minimum Stake<br>
-        ✔ 0.01% Daily Rewards<br>
-        ✔ Auto-compounding in the future update
+        • Tokenomics<br>
+        • Ecosystem Design<br>
+        • Watch-to-Earn Framework<br>
+        • Staking Mechanics<br>
+        • Roadmap<br>
+        • Community Governance
     </p>
 </div>
 
 <!-- ROADMAP -->
 <div class="section" id="roadmap">
-    <h2>🗺 BitWatchTV Roadmap</h2>
+    <h2>🗺️ BTW TOKEN ROADMAP</h2>
 
-    <h3>Phase 1</h3>
-    <p>Platform launch • Movies database • Earnings system</p>
+    <p><b>Phase 1</b><br>
+        • Token Creation<br>
+        • Smart Contract Audit<br>
+        • Website Launch</p>
 
-    <h3>Phase 2</h3>
-    <p>BTW Token launch • Staking system • Wallet integration</p>
+    <p><b>Phase 2</b><br>
+        • BTW Staking<br>
+        • App Integration<br>
+        • Airdrops</p>
 
-    <h3>Phase 3</h3>
-    <p>Mobile App • Marketplace • Token utility expansion</p>
-
-    <h3>Phase 4</h3>
-    <p>Global expansion • Smart TV app • Cross-chain upgrade</p>
+    <p><b>Phase 3</b><br>
+        • Marketplace Launch<br>
+        • Partnerships<br>
+        • CEX Listing</p>
 </div>
 
 <!-- COMMUNITY -->
 <div class="section" id="community">
     <h2>Join the Community</h2>
-    <p>Be the first to get updates, airdrops, and new features.</p>
+    <p>FB Group, Updates, Events, Airdrops, Movie Releases</p>
 
-    <a href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT" class="btn" target="_blank">JOIN FB GROUP</a>
+    <a href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share" class="btn" target="_blank">
+        JOIN FB GROUP
+    </a>
 </div>
 
 <!-- FOOTER -->
