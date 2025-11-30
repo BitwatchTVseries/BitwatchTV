@@ -3,56 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BitWatchTV — Watch • Earn • Enjoy</title>
+    <title>BitWatchTV — BTW Token</title>
 
     <style>
         body {
             margin: 0;
-            padding: 0;
-            background: #0d0d0d;
-            color: #ffffff;
             font-family: Arial, sans-serif;
+            background: #0a0a0a;
+            color: white;
         }
 
         header {
             background: #111;
-            padding: 25px;
+            padding: 15px;
             text-align: center;
-            font-size: 26px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #00aaff;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: #00aaff;
+            text-decoration: none;
             font-weight: bold;
-            color: #00ccff;
         }
 
-        .section {
-            padding: 40px 20px;
+        section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1, h2 {
+            color: #00aaff;
             text-align: center;
-            border-bottom: 1px solid #222;
-        }
-
-        h2, h3 {
-            color: #00ccff;
         }
 
         .btn {
-            background: #00ccff;
-            color: #000;
-            padding: 14px 26px;
+            display: inline-block;
+            background: #00aaff;
+            color: black;
+            padding: 12px 25px;
             border-radius: 10px;
-            font-size: 18px;
             text-decoration: none;
             font-weight: bold;
-            display: inline-block;
-            margin-top: 15px;
+            transition: 0.3s;
         }
 
-        .big {
-            font-size: 20px;
-            font-weight: bold;
+        .btn:hover {
+            background: #0099dd;
         }
 
-        .highlight {
-            color: #00ccff;
-            font-weight: bold;
+        .box {
+            background: #111;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 1px solid #00aaff;
+        }
+
+        .qr {
+            text-align: center;
+            padding: 20px;
+        }
+
+        img.qr-img {
+            width: 180px;
+            height: 180px;
+            border: 3px solid #00aaff;
+            border-radius: 10px;
         }
 
     </style>
@@ -60,161 +81,118 @@
 <body>
 
 <header>
-    🎬 BITWATCHTV — WATCH • EARN • ENJOY
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#token">BTW Token</a>
+        <a href="#whitepaper">Whitepaper</a>
+        <a href="#staking">Staking</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#qr">QR Code</a>
+    </nav>
 </header>
 
-<!-- HERO SECTION -->
-<div class="section">
-    <h2>The First Filipino Watch-and-Earn Entertainment Platform</h2>
-    <p class="big">
-        No pairing. No matching. <br>
-        Earn real rewards just by watching.
-    </p>
-    <p>
-        📱 ₱100/month subscription • 🎞 Unlimited Movies & Series <br>
-        💸 Infinity Earnings • 🪙 BTW Token Coming Soon
-    </p>
-    <a href="#" class="btn">START WATCHING</a>
-    <a href="#" class="btn">JOIN COMMUNITY</a>
-</div>
+<!-- HOME ------------------------------- -->
 
-<!-- WHAT IS BITWATCHTV -->
-<div class="section">
-    <h2>What Is BitWatchTV?</h2>
-    <p>
-        BitWatchTV is a combined digital entertainment and rewards ecosystem where you can watch movies,
-        share the platform, and earn unlimited income without complicated pairing systems.
-    </p>
-    <p>
-        Our mission is to provide affordable streaming for all Filipinos
-        while offering a transparent rewards system with real value.
-    </p>
-</div>
+<section id="home">
+    <h1>Welcome to BitWatchTV</h1>
+    <p style="text-align:center;">Watch Movies • Earn Rewards • Own the Future</p>
 
-<!-- WHY CHOOSE BITWATCHTV -->
-<div class="section">
-    <h2>Why Choose BitWatchTV?</h2>
-    <p><span class="highlight">1. Watch & Earn (Infinity Program)</span><br>
-       Earn unlimited commissions—even from your strongest leg.</p>
+    <div style="text-align:center; margin-top:30px;">
+        <a class="btn" href="https://iwatch.space/index.php" target="_blank">
+            START WATCHING
+        </a>
+    </div>
+</section>
 
-    <p><span class="highlight">2. Only ₱100 per Month</span><br>
-       Unlimited movies, unlimited fun.</p>
 
-    <p><span class="highlight">3. Community-Powered Rewards</span><br>
-       More viewers = stronger income potential.</p>
 
-    <p><span class="highlight">4. BTW Utility Token (Coming Soon)</span><br>
-       Designed for real use—not hype.</p>
+<!-- TOKEN ------------------------------- -->
 
-    <p><span class="highlight">5. Perfect for Every Filipino</span><br>
-       Students, workers, OFWs, parents—anyone who loves watching can earn.</p>
-</div>
+<section id="token">
+    <h2>BTW TOKEN</h2>
+    <div class="box">
+        <p><strong>Token Name:</strong> BitWatchTV</p>
+        <p><strong>Token Symbol:</strong> BTW</p>
+        <p><strong>Total Supply:</strong> 1,000,000,000 BTW</p>
+        <p><strong>Network:</strong> Binance Smart Chain (BSC)</p>
+        <p><strong>Standard:</strong> BEP-20</p>
+    </div>
+</section>
 
-<!-- WAYS TO EARN -->
-<div class="section">
-    <h2>🔥 Ways to Earn in BitWatchTV 🔥</h2>
 
-    <h3>Unilevel Infinity Program</h3>
-    <p>
-        <b>Level Income:</b><br>
-        • Level 1: 2 USDT<br>
-        • Level 2–5: 1 USDT each level
-    </p>
 
-    <h3>Starter Miner (SM) — 20 USDT</h3>
-    <p>
-        • Includes 25 codes<br>
-        • Potential Value: 25 × ₱100 = ₱2,500
-    </p>
+<!-- WHITEPAPER ------------------------------- -->
 
-    <h3>Block Miner (BM)</h3>
-    <p>
-        Requirement: 30 direct Starter Miners<br>
-        Earnings: 1 USDT per Starter Package (up to infinity)
-    </p>
+<section id="whitepaper">
+    <h2>Whitepaper</h2>
 
-    <h3>Chain Builder (CB)</h3>
-    <p>
-        <b>UPDATED:</b> 25 direct Block Miners<br>
-        Earnings: 2 USDT per Starter Package (up to infinity)
-    </p>
+    <div class="box">
+        <h3>1. Introduction</h3>
+        BitWatchTV combines digital entertainment and blockchain rewards into one ecosystem.
+        Users can watch movies and earn tokens while contributing to a decentralized entertainment economy.
 
-    <h3>Master Validator (MV)</h3>
-    <p>
-        Requirement: 20 direct Chain Builders<br>
-        Earnings: 3 USDT per Starter Package (up to infinity)
-    </p>
+        <h3>2. Token Utility</h3>
+        • Movie Credits  
+        • VIP Access  
+        • Staking Rewards  
+        • Future Marketplace  
 
-    <h3>Genesis Validator (GV)</h3>
-    <p>
-        The top premium investor rank.<br><br>
-        Benefits:<br>
-        • Earn up to 5% monthly<br>
-        • 300 codes = ₱30,000 potential value<br>
-        • Minimum Capital Share: 200 USDT
-    </p>
+        <h3>3. Economic Model</h3>
+        • Total Supply: 1B  
+        • Transparent Distribution  
+        • Sustainable Rewards  
+    </div>
+</section>
 
-    <p class="big">Simple ranks. Simple requirements. Unlimited earning potential.</p>
-</div>
 
-<!-- BTW TOKEN SECTION -->
-<div class="section">
-    <h2>🚀 BTW Token — The Future of BitWatchTV</h2>
-    <p>
-        BTW is the official utility token of BitWatchTV — designed with real purpose and long-term sustainability,
-        not hype or empty promises.
-    </p>
-    <p>
-        You will be able to use BTW for:
-        <br>• Platform spending
-        <br>• Movie credits
-        <br>• Rewards conversion
-        <br>• Subscription payments
-        <br>• In-app purchases
-        <br>• Marketplace features (soon)
-    </p>
-    <p class="big">
-        BTW = Entertainment + Blockchain Utility<br>
-        The token that fuels the entire BitWatchTV ecosystem.
-    </p>
-</div>
 
-<!-- SUBSCRIBE -->
-<div class="section">
-    <h2>Subscribe Now — Only ₱100/Month</h2>
-    <p>
-        Unlock unlimited streaming plus access to the full earning system.
-    </p>
-    <a href="#" class="btn">SUBSCRIBE NOW</a>
-    <a href="#" class="btn">DOWNLOAD APP (SOON)</a>
-</div>
+<!-- STAKING ------------------------------- -->
 
-<!-- COMMUNITY -->
-<div class="section">
-    <h2>Join the Community</h2>
-    <p>
-        The BitWatchTV community is where the latest updates drop first—including:
-        <br>Airdrops • BTW Token Launch • New Movies • Events • Exclusive Promos
-    </p>
-    <a href="#" class="btn">JOIN COMMUNITY</a>
-</div>
+<section id="staking">
+    <h2>Staking Program</h2>
 
-<!-- MISSION AND VISION -->
-<div class="section">
-    <h2>Mission & Vision</h2>
-    <p><b>Mission:</b><br>
-       To provide affordable entertainment and transparent earning opportunities through
-       innovative, community-driven digital content.</p>
+    <div class="box">
+        <p><strong>Daily Rewards:</strong> 0.01%</p>
+        <p><strong>Lock-in Period:</strong> 6 Months</p>
+        <p><strong>Minimum Stake:</strong> None (0 BTW allowed)</p>
+    </div>
+</section>
 
-    <p><b>Vision:</b><br>
-       To become the leading Filipino entertainment and rewards platform powered by
-       real utility, real value, and accessible technology.</p>
-</div>
 
-<!-- FOOTER -->
-<div class="section">
-    <p>© 2025 BitWatchTV — All Rights Reserved</p>
-</div>
+
+<!-- ROADMAP ------------------------------- -->
+
+<section id="roadmap">
+    <h2>Roadmap</h2>
+
+    <div class="box">
+        <h3>Phase 1 — Q1 2025</h3>
+        Platform Upgrade, Token Creation, Whitepaper v1
+
+        <h3>Phase 2 — Q2 2025</h3>
+        Token Launch, Staking, Community Expansion
+
+        <h3>Phase 3 — Q3 2025</h3>
+        Mobile App, Smart TV App, Listings
+
+        <h3>Phase 4 — Q4 2025</h3>
+        NFT Marketplace, Global Scaling
+    </div>
+</section>
+
+
+
+<!-- QR CODE ------------------------------- -->
+
+<section id="qr">
+    <h2>QR Code</h2>
+
+    <div class="qr">
+        <img class="qr-img" src="bitwatchtv_qr.png" alt="QR Code">
+        <p>Scan to open BitWatchTV Platform</p>
+    </div>
+</section>
+
 
 </body>
 </html>
