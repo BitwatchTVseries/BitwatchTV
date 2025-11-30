@@ -1,268 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BitWatchTV — Earn While Watching</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BitWatchTV</title>
 
-    <style>
-        body {
-            margin: 0;
-            background: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-        }
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #0d0d0d;
+        color: white;
+    }
 
-        /* HEADER */
-        header {
-            width: 100%;
-            background: #0a0a0a;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            border-bottom: 1px solid #222;
-        }
+    /* HEADER + MENU */
+    header {
+        background-color: #141414;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 2px solid #e50914;
+    }
 
-        .logo-text {
-            font-size: 22px;
-            font-weight: bold;
-            color: #00bfff;
-            letter-spacing: 1px;
-        }
+    header .logo {
+        font-size: 26px;
+        font-weight: bold;
+        color: #e50914;
+    }
 
-        /* HAMBURGER */
-        .menu-btn {
-            font-size: 28px;
-            cursor: pointer;
-        }
+    nav a {
+        margin-left: 20px;
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        transition: 0.3s;
+    }
 
-        nav {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background: #111;
-            border-radius: 10px;
-            padding: 15px;
-        }
+    nav a:hover {
+        color: #e50914;
+    }
 
-        nav a {
-            display: block;
-            padding: 10px;
-            color: #fff;
-            text-decoration: none;
-        }
+    /* SECTION */
+    .section {
+        padding: 25px;
+    }
 
-        /* HERO SECTION */
-        .hero {
-            text-align: center;
-            padding: 90px 20px;
-            background: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4') center/cover no-repeat;
-            background-attachment: fixed;
-        }
+    .title {
+        font-size: 26px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #e50914;
+    }
 
-        .hero h1 {
-            font-size: 40px;
-            font-weight: bold;
-            text-shadow: 0 0 10px #000;
-        }
+    /* WATCH NOW BUTTON */
+    .watch-btn {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #e50914;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
 
-        .btn-watch {
-            margin-top: 25px;
-            padding: 15px 25px;
-            background: #00bfff;
-            color: #000;
-            font-size: 20px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 0 15px #00bfff;
-        }
+    .watch-btn:hover {
+        background-color: #b40610;
+    }
 
-        .btn-watch span {
-            font-size: 24px;
-        }
+    /* FACEBOOK BUTTON */
+    .fb-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #1877f2;
+        padding: 12px 22px;
+        border-radius: 35px;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 18px;
+    }
 
-        /* SECTION TITLE */
-        .section-title {
-            font-size: 32px;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #00bfff;
-        }
+    .fb-btn:hover {
+        background-color: #0f5bd3;
+    }
 
-        /* CARD STYLE */
-        .card {
-            background: #111;
-            padding: 20px;
-            margin: 15px auto;
-            width: 90%;
-            max-width: 700px;
-            border-radius: 10px;
-            border: 1px solid #222;
-        }
+    .fb-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: white;
+        color: #1877f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 18px;
+    }
 
-        .card h3 {
-            margin: 0;
-            font-size: 22px;
-            color: #00bfff;
-        }
+    /* RANK BOX DESIGN */
+    .rank-box {
+        background-color: #1a1a1a;
+        border: 2px solid #e50914;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
 
-        /* TOKEN ROADMAP */
-        .roadmap {
-            width: 90%;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            border-left: 3px solid #00bfff;
-        }
-
-        .roadmap div {
-            padding: 15px;
-            margin-bottom: 15px;
-            background: #111;
-            border-radius: 6px;
-        }
-
-        /* ADMIN EDITOR */
-        #admin-editor {
-            background: #111;
-            padding: 60px 20px;
-        }
-
-        #admin-editor input {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            margin-bottom: 15px;
-        }
-
-        #admin-editor button {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            background: #00bfff;
-            color: #000;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-    </style>
-
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById("navMenu");
-            nav.style.display = nav.style.display === "block" ? "none" : "block";
-        }
-    </script>
+    .rank-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #e50914;
+        margin-bottom: 5px;
+    }
+</style>
 </head>
-
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo-text">BITWATCHTV</div>
-        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+<!-- HEADER -->
+<header>
+    <div class="logo">BITWATCHTV</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#watch">Watch</a>
+        <a href="#community">Community</a>
+        <a href="#rankings">Rankings</a>
+        <a href="#btw">BTW Token</a>
+    </nav>
+</header>
 
-        <nav id="navMenu">
-            <a href="#earn">Ways to Earn</a>
-            <a href="#token">BTW Token</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#admin-editor">Admin</a>
-        </nav>
-    </header>
+<!-- WATCH NOW SECTION -->
+<div class="section" id="watch" style="text-align:center;">
+    <a href="https://iwatch.space/" target="_blank" class="watch-btn">▶ WATCH NOW</a>
+</div>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Earn While Watching Movies</h1>
-        <div class="btn-watch">
-            <span>▶</span> Watch Now
-        </div>
-    </section>
+<!-- COMMUNITY SECTION (FB BUTTON) -->
+<div class="section" id="community" style="text-align:center;">
+    <a href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT" 
+       target="_blank" class="fb-btn">
+        <div class="fb-icon">f</div>  
+        Join Our Community
+    </a>
+</div>
 
-    <!-- WAYS TO EARN -->
-    <section id="earn">
-        <h2 class="section-title">🔥 BITWATCHTV — WAYS TO EARN 🔥</h2>
+<!-- RANKINGS SECTION -->
+<div class="section" id="rankings">
+    <div class="title">BitWatchTV Rankings</div>
 
-        <div class="card">
-            <h3>STARTER MINER (SM) — 20 USDT</h3>
-            <p>• 25 Codes<br>• Level 1: 2 USDT<br>• Level 2–5: 1 USDT each level</p>
-        </div>
+    <div class="rank-box">
+        <div class="rank-title">Starter Miner (SM)</div>
+        <p>20 USDT Package • 25 Codes • Unlimited Level Earnings</p>
+    </div>
 
-        <div class="card">
-            <h3>BLOCK MINER (BM)</h3>
-            <p>Requirement: 30 directs<br>• Earn 1 USDT per Starter Package</p>
-        </div>
+    <div class="rank-box">
+        <div class="rank-title">Chain Builder (CB)</div>
+        <p>Requirement: 30 Block Miners • Earn 2 USDT per Starter Package</p>
+    </div>
 
-        <div class="card">
-            <h3>CHAIN BUILDER (CB)</h3>
-            <p>Requirement: 30 BM directs<br>• Earn 2 USDT per Starter Package</p>
-        </div>
+    <div class="rank-box">
+        <div class="rank-title">Master Validator (MV)</div>
+        <p>Requirement: 20 Chain Builders • Earn 3 USDT per Starter Package</p>
+    </div>
 
-        <div class="card">
-            <h3>MASTER VALIDATOR (MV)</h3>
-            <p>Requirement: 20 CB directs<br>• Earn 3 USDT per Starter Package</p>
-        </div>
+    <div class="rank-box">
+        <div class="rank-title">Genesis Validator (GV)</div>
+        <p>Top Investor Rank • Earn up to 5% monthly • 300 Codes Value</p>
+    </div>
+</div>
 
-        <div class="card">
-            <h3>GENESIS VALIDATOR (GV)</h3>
-            <p>Top Rank<br>• 5% monthly bonus<br>• 300 codes<br>• 200 USDT Capital Share</p>
-        </div>
-    </section>
-
-    <!-- BTW TOKEN -->
-    <section id="token" style="padding: 60px 20px;">
-        <h2 class="section-title">BTW TOKEN</h2>
-
-        <div class="card">
-            <h3>🎬 Earn Tokens While Watching Movies</h3>
-            <p>
-                Every minute you watch inside BitWatchTV gives you **BTW Tokens**.  
-                Tokens can be used for:
-                <br>• Movie Access  
-                <br>• Staking  
-                <br>• Trading  
-                <br>• Rewards  
-            </p>
-        </div>
-    </section>
-
-    <!-- ROADMAP -->
-    <section id="roadmap" style="padding:60px 20px;">
-        <h2 class="section-title">🚀 BTW TOKEN ROADMAP 2025</h2>
-
-        <div class="roadmap">
-            <div><strong>Q1:</strong> Token Launch + Smart Contract</div>
-            <div><strong>Q2:</strong> Staking + Rewards Integration</div>
-            <div><strong>Q3:</strong> Listing on Small DEX</div>
-            <div><strong>Q4:</strong> Full Movie-to-Earn Ecosystem</div>
-        </div>
-    </section>
-
-    <!-- ADMIN EDITOR -->
-    <section id="admin-editor">
-        <h2 class="section-title">🔧 ADMIN EDITOR</h2>
-
-        <div class="card" style="max-width:400px; margin:auto;">
-            <h3>Admin Login</h3>
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-            <button>Login</button>
-        </div>
-
-        <p style="text-align:center; margin-top:20px; opacity:0.6;">
-            *Admin tools unlock once backend is added.*
-        </p>
-    </section>
+<!-- BTW TOKEN SECTION -->
+<div class="section" id="btw">
+    <div class="title">BTW Token (Coming Soon)</div>
+    <p>
+        Earn BTW Token while watching movies!  
+        The official token of BitWatchTV for rewards, access, and future utility.
+    </p>
+</div>
 
 </body>
 </html>
