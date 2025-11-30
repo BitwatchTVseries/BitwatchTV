@@ -1,241 +1,328 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BitWatchTV Official</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>BitWatchTV — Watch • Earn • BTW Token</title>
+<meta name="description" content="BitWatchTV — Filipino watch-and-earn entertainment platform. BTW token (BEP-20), staking, roadmap, whitepaper & community." />
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #0d0d0d;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        header {
-            background: #111;
-            padding: 25px;
-            text-align: center;
-            font-size: 26px;
-            font-weight: bold;
-            color: #00ccff;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-
-        nav {
-            background: #000;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            border-bottom: 1px solid #222;
-        }
-
-        nav a {
-            color: #00ccff;
-            text-decoration: none;
-            padding: 8px 14px;
-            border-radius: 8px;
-            border: 1px solid #00ccff;
-        }
-
-        nav a:hover {
-            background: #00ccff;
-            color: #000;
-        }
-
-        .section {
-            padding: 50px 20px;
-            text-align: center;
-            border-bottom: 1px solid #222;
-        }
-
-        h2, h3 {
-            color: #00ccff;
-        }
-
-        .btn {
-            background: #00ccff;
-            color: #000;
-            padding: 14px 26px;
-            border-radius: 10px;
-            font-size: 18px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 15px;
-        }
-
-        .big {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .highlight {
-            color: #00ccff;
-            font-weight: bold;
-        }
-
-        .qr-box img {
-            width: 180px;
-            margin-top: 20px;
-            border: 3px solid #00ccff;
-            border-radius: 10px;
-        }
-    </style>
+<style>
+  :root{
+    --bg:#070708;
+    --panel:#0f1113;
+    --accent:#00ccff;
+    --muted:#9aa6b2;
+    --glass: rgba(255,255,255,0.03);
+    --radius:14px;
+    --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter, system-ui, Arial, sans-serif;background:linear-gradient(180deg,#050607 0%, var(--bg) 100%);color:#eaf6ff; -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  a{color:var(--accent); text-decoration:none;}
+  header{position:sticky;top:0;z-index:60;background:linear-gradient(90deg,#050607, #0b0b0b);border-bottom:1px solid rgba(0,204,255,0.06)}
+  .topbar{max-width:var(--maxw);margin:0 auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo-wrap{width:64px;height:64px;display:flex;align-items:center;justify-content:center}
+  /* FAST floating animation for logo (C) */
+  .logo-img{
+    width:64px;
+    height:64px;
+    border-radius:12px;
+    object-fit:cover;
+    transform-origin:center;
+    animation:fastFloat 1.0s ease-in-out infinite;
+    box-shadow:0 8px 30px rgba(0,0,0,0.6), 0 0 20px rgba(0,204,255,0.06);
+    border:2px solid rgba(0,204,255,0.06);
+  }
+  @keyframes fastFloat{
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-18px); }
+    100% { transform: translateY(0px); }
+  }
+  .brand-title{display:flex;flex-direction:column}
+  .brand-title .name{font-weight:800;color:var(--accent)}
+  .brand-title .tag{font-size:12px;color:var(--muted)}
+  nav{display:flex;gap:12px;flex-wrap:wrap}
+  nav a{padding:8px 12px;border-radius:10px;font-weight:600;font-size:14px}
+  nav a:hover{background:rgba(0,204,255,0.06)}
+  main{max-width:var(--maxw);margin:28px auto;padding:0 18px}
+  .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-bottom:28px}
+  @media(max-width:940px){.hero{grid-template-columns:1fr}.hero-right{order:-1}}
+  .card{background:linear-gradient(180deg,var(--panel), #0b0c0e);border-radius:var(--radius);padding:22px;border:1px solid rgba(0,204,255,0.06);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+  h1{margin:0;color:var(--accent);font-size:28px}
+  p.lead{color:var(--muted);font-size:15px;margin-top:10px;line-height:1.45}
+  .cta-row{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{background:var(--accent);color:#021018;padding:12px 18px;border-radius:12px;font-weight:800;display:inline-block}
+  .btn.outline{background:transparent;color:var(--accent);border:1px solid rgba(0,204,255,0.12)}
+  .small{font-size:13px;color:var(--muted)}
+  .section{margin:34px 0}
+  h2{color:var(--accent);margin:0 0 12px 0;font-size:22px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .box{background:linear-gradient(180deg,#0b0d0f,#0c0e10);padding:18px;border-radius:12px;border:1px solid rgba(0,204,255,0.04)}
+  .bars{display:flex;flex-direction:column;gap:12px}
+  .bar-row{display:flex;align-items:center;gap:12px}
+  .bar-label{width:170px;font-size:14px;color:var(--muted)}
+  .bar-track{flex:1;background:rgba(255,255,255,0.03);height:14px;border-radius:8px;overflow:hidden}
+  .bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),#0077c7);border-radius:8px}
+  .percent{width:56px;text-align:right;font-size:14px;color:var(--muted)}
+  .roadmap{display:flex;flex-direction:column;gap:12px}
+  .phase{background:linear-gradient(180deg,#071014,#071217);padding:16px;border-radius:10px;border-left:4px solid var(--accent)}
+  .stake-grid{display:flex;gap:12px;align-items:stretch;flex-wrap:wrap}
+  .stake-card{flex:1;min-width:220px}
+  .stat{font-size:20px;color:#fff;font-weight:800}
+  .muted{color:var(--muted)}
+  .earn-list{display:flex;flex-direction:column;gap:8px}
+  .earn-item{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+  footer{margin-top:40px;padding:28px 18px;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
+  .contract{font-family:monospace;background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;display:inline-block}
+  @media(max-width:520px){.topbar{padding:8px 12px}.logo-img{width:52px;height:52px}}
+</style>
 </head>
 <body>
 
-<header>🎬 BITWATCHTV — WATCH • EARN • ENJOY</header>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo-wrap">
+        <!-- Put your logo file named "bitwatch_logo.png" next to this HTML -->
+        <img src="bitwatch_logo.png" alt="BitWatchTV Logo" class="logo-img">
+      </div>
 
-<!-- NAVIGATION -->
-<nav>
-    <a href="#home">Home</a>
-    <a href="#earn">Ways to Earn</a>
-    <a href="#token">BTW Token</a>
-    <a href="#staking">Staking</a>
-    <a href="#whitepaper">Whitepaper</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#community">Community</a>
-</nav>
-
-<!-- HOME -->
-<div class="section" id="home">
-    <h2>The First Filipino Watch-and-Earn Entertainment Platform</h2>
-    <p class="big">No pairing. No matching. Earn real rewards just by watching.</p>
-
-    <p>📱 ₱100/month subscription • 🎞 Unlimited Movies & Series <br>
-       💸 Infinity Earnings • 🪙 BTW Token</p>
-
-    <a href="https://iwatch.space/index.php" class="btn" target="_blank">START WATCHING</a>
-    <a href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share" class="btn" target="_blank">JOIN COMMUNITY</a>
-
-    <div class="qr-box">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://iwatch.space/index.php" alt="QR Code">
+      <div class="brand-title">
+        <div class="name">BITWATCHTV</div>
+        <div class="tag">Watch • Earn • Enjoy</div>
+      </div>
     </div>
-</div>
 
-<!-- WAYS TO EARN -->
-<div class="section" id="earn">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#earn">Ways to Earn</a>
+      <a href="#token">BTW Token</a>
+      <a href="#whitepaper">Whitepaper</a>
+      <a href="#staking">Staking</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#community">Community</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <div class="card">
+        <h1>🎬 BitWatchTV — Watch • Earn • Enjoy</h1>
+        <p class="lead">The Philippines' watch-and-earn entertainment platform. Watch movies, invite friends, earn rewards — powered by BTW token (BEP-20).</p>
+
+        <div class="cta-row">
+          <a class="btn" href="https://iwatch.space/index.php" target="_blank">START WATCHING</a>
+          <a class="btn outline" href="#token">ABOUT BTW</a>
+          <a class="btn outline" href="#staking">STAKE BTW</a>
+        </div>
+
+        <div style="margin-top:16px" class="small">Subscription: <strong>₱100 / month</strong> • Unlimited movies & series</div>
+      </div>
+
+      <div style="margin-top:16px" class="card">
+        <h2 style="margin-top:0">Quick Links</h2>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn outline" href="#earn">Ways to Earn</a>
+          <a class="btn outline" href="#whitepaper">Whitepaper</a>
+          <a class="btn outline" href="#roadmap">Roadmap</a>
+          <a class="btn outline" href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT" target="_blank">FB Group</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="card" style="text-align:center;">
+        <h3 style="margin:0;color:var(--accent)">Join the Community</h3>
+        <p class="muted">Latest updates, airdrops, token launch announcements</p>
+        <a class="btn" href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT" target="_blank">JOIN FB GROUP</a>
+
+        <div style="margin-top:18px" class="small muted">Scan to open platform</div>
+        <div style="margin-top:12px">
+          <!-- QR you already generated earlier -->
+          <img src="bitwatchtv_qr.png" alt="BitWatchTV QR" style="width:160px;border-radius:10px;border:2px solid rgba(0,204,255,0.06)">
+        </div>
+
+        <div style="margin-top:16px;text-align:left" class="small muted">
+          <div><strong>Contract (placeholder):</strong></div>
+          <div class="contract">0x0000000000000000000000000000000000000000</div>
+          <div style="margin-top:8px;"><small>Edit with actual contract before public launch.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAYS TO EARN -->
+  <section id="earn" class="section">
     <h2>🔥 BITWATCHTV — WAYS TO EARN 🔥</h2>
+    <div class="box">
+      <p class="small muted">Earn while watching and growing your network — simple ranks, simple rules.</p>
 
-    <h3>Unilevel Infinity Program</h3>
-    <p><b>📌 LEVEL INCOME</b><br>
-        • Level 1: 2 USDT<br>
-        • Level 2–Level 5: 1 USDT each level</p>
+      <div style="margin-top:12px" class="earn-list">
+        <div class="earn-item"><strong>Level Income</strong> — Level 1: 2 USDT • Level 2–5: 1 USDT each level</div>
+        <div class="earn-item"><strong>Starter Miner (SM)</strong> — 20 USDT (includes 25 codes — potential value 25 × ₱100)</div>
+        <div class="earn-item"><strong>Block Miner (BM)</strong> — Requirement: 30 direct Starter Miners • Earnings: 1 USDT per Starter Package</div>
+        <div class="earn-item"><strong>Chain Builder (CB)</strong> — 25 direct Block Miners • Earnings: 2 USDT per Starter Package</div>
+        <div class="earn-item"><strong>Master Validator (MV)</strong> — 20 direct Chain Builders • Earnings: 3 USDT per Starter Package</div>
+        <div class="earn-item"><strong>Genesis Validator (GV)</strong> — Premium rank • Earn up to 5% monthly • 300 codes = ₱30,000 potential value • Min Capital Share: 200 USDT</div>
+      </div>
+    </div>
+  </section>
 
-    <h3>🟦 STARTER MINER (SM) — 20 USDT</h3>
-    <p>Package Includes:<br>
-       • 25 codes<br>
-       • Potential Value: ₱2,500</p>
+  <!-- TOKEN -->
+  <section id="token" class="section">
+    <h2>🪙 BTW Token — BitWatchTV (Official)</h2>
+    <div class="grid">
+      <div class="box">
+        <h3 style="margin-top:0">Token Specs</h3>
+        <p><strong>Name:</strong> BitWatchTV</p>
+        <p><strong>Symbol:</strong> BTW</p>
+        <p><strong>Total Supply:</strong> 1,000,000,000 BTW</p>
+        <p><strong>Network:</strong> Binance Smart Chain (BEP-20)</p>
+        <p><strong>Decimals:</strong> 18</p>
+        <p class="small muted">Use BTW for subscriptions, movie credits, staking, marketplace & rewards.</p>
+      </div>
 
-    <h3>🟩 BLOCK MINER (BM)</h3>
-    <p>Requirement: 30 direct Starter<br>
-       Earnings: 1 USDT per Starter Package (Infinity)</p>
+      <div class="box">
+        <h3 style="margin-top:0">Tokenomics & Distribution</h3>
+        <div style="margin-top:8px" class="bars">
+          <div class="bar-row"><div class="bar-label">Community Rewards</div><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div><div class="percent">40%</div></div>
+          <div class="bar-row"><div class="bar-label">Liquidity</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="percent">20%</div></div>
+          <div class="bar-row"><div class="bar-label">Team & Dev</div><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><div class="percent">15%</div></div>
+          <div class="bar-row"><div class="bar-label">Marketing & Partners</div><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><div class="percent">15%</div></div>
+          <div class="bar-row"><div class="bar-label">Reserve Fund</div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><div class="percent">10%</div></div>
+        </div>
+        <p class="small muted" style="margin-top:10px">Note: percentages reflect distribution plan — values are illustrative until smart contract is deployed and audited.</p>
+      </div>
+    </div>
+  </section>
 
-    <h3>🟧 CHAIN BUILDER (CB)</h3>
-    <p>Requirement: 30 direct Block Miner<br>
-       Earnings: 2 USDT per Starter Package (Infinity)</p>
+  <!-- WHITEPAPER -->
+  <section id="whitepaper" class="section">
+    <h2>📘 Whitepaper (Lite)</h2>
+    <div class="box">
+      <h3 style="margin-top:0">1. Executive Summary</h3>
+      <p>BitWatchTV merges streaming entertainment with tokenized rewards, letting Filipino viewers earn while they watch. BTW token provides utility across the platform and aligns incentives for users and creators.</p>
 
-    <h3>🟥 MASTER VALIDATOR (MV)</h3>
-    <p>Requirement: 20 direct Chain Builder<br>
-       Earnings: 3 USDT per Starter Package (Infinity)</p>
+      <h3>2. Vision & Mission</h3>
+      <p><strong>Vision:</strong> To be the leading Filipino entertainment and rewards platform powered by real utility and blockchain transparency.<br>
+         <strong>Mission:</strong> Provide affordable streaming, transparent earning opportunities, and a community-first ecosystem.</p>
 
-    <h3>👑 GENESIS VALIDATOR (GV)</h3>
-    <p>Benefits:<br>
-        • Earn up to 5% monthly<br>
-        • 300 codes (₱30,000 value)<br>
-        • Minimum 200 USDT</p>
+      <h3>3. Utility</h3>
+      <ul style="text-align:left;color:var(--muted)">
+        <li>Subscription payments (₱100/month)</li>
+        <li>Movie credits & VIP access</li>
+        <li>Staking rewards & loyalty</li>
+        <li>Marketplace purchases</li>
+        <li>Airdrops & event rewards</li>
+      </ul>
 
-    <p class="big">Unlimited Earnings. No pairing. No matching.</p>
-</div>
+      <h3>4. Security & Compliance</h3>
+      <p>Smart contract audit, multi-sig treasury, anti-whale & anti-dump measures will be implemented before public sale and CEX applications.</p>
+    </div>
+  </section>
 
-<!-- BTW TOKEN -->
-<div class="section" id="token">
-    <h2>🚀 BTW TOKEN — OFFICIAL UTILITY OF BITWATCHTV</h2>
+  <!-- STAKING -->
+  <section id="staking" class="section">
+    <h2>🔒 Staking — Passive Rewards</h2>
+    <div class="box">
+      <div class="stake-grid">
+        <div class="stake-card box">
+          <h3 style="margin-top:0">Program Overview</h3>
+          <p class="muted">Stake BTW to earn passive daily rewards and support the ecosystem.</p>
+          <p><strong>Daily Reward:</strong> 0.01%</p>
+          <p><strong>Lock-in:</strong> 6 months fixed</p>
+          <p><strong>Minimum Stake:</strong> None — anyone can participate</p>
+          <p class="small muted">Rewards and lock-in terms are implemented by the staking smart contract.</p>
+        </div>
 
-    <p><b>Token Name:</b> BitWatchTV<br>
-       <b>Symbol:</b> BTW<br>
-       <b>Total Supply:</b> 1,000,000,000 BTW<br>
-       <b>Network:</b> BSC (Binance Smart Chain)</p>
+        <div class="stake-card box">
+          <h3 style="margin-top:0">Staking Calculator (example)</h3>
+          <p class="muted">0.01% daily = approx 3.65% per year but because we use 6-month lock-ins & platform yield, rewards are designed to be sustainable and funded from platform economics.</p>
+          <p><strong>Example:</strong> Stake 10,000 BTW → daily reward = 1 BTW (0.01% of 10,000 = 1) — distributed daily (illustrative).</p>
+          <p class="small muted">Exact payouts depend on contract and available reward pool.</p>
+        </div>
+      </div>
 
-    <p>Utility:<br>
-        • Movie Credits<br>
-        • Subscription Payment<br>
-        • Rewards Conversion<br>
-        • Marketplace<br>
-        • App Purchases</p>
+      <div style="margin-top:14px;text-align:center">
+        <a class="btn" href="#community">JOIN STAKING WAITLIST</a>
+        <a class="btn outline" href="#whitepaper" style="margin-left:10px">READ WHITEPAPER</a>
+      </div>
+    </div>
+  </section>
 
-    <p class="big">BTW = Entertainment + Blockchain Utility</p>
-</div>
+  <!-- ROADMAP -->
+  <section id="roadmap" class="section">
+    <h2>🗺️ Roadmap — 2025 & Beyond</h2>
+    <div class="roadmap">
+      <div class="phase">
+        <strong>Phase 1 — Foundation (Q1 2025)</strong>
+        <p class="muted">Platform core upgrade, BTW token creation (BEP-20), smart contract development, whitepaper v1, internal testing.</p>
+      </div>
 
-<!-- STAKING -->
-<div class="section" id="staking">
-    <h2>💰 BTW STAKING PROGRAM</h2>
+      <div class="phase">
+        <strong>Phase 2 — Ecosystem Launch (Q2 2025)</strong>
+        <p class="muted">Public token release, subscription integration, staking launch (0.01% daily, 6-month lock), community expansion, initial liquidity on DEX.</p>
+      </div>
 
-    <p><b>Lock-in Period:</b> 6 Months<br>
-       <b>Minimum Stake:</b> None (0 minimum)<br>
-       <b>Daily Reward:</b> 0.01% daily</p>
+      <div class="phase">
+        <strong>Phase 3 — Growth & Utility (Q3 2025)</strong>
+        <p class="muted">Mobile app beta, Smart TV integration, DEX/CEX listing applications, utility expansion (movie credits, in-app purchases), partnerships.</p>
+      </div>
 
-    <p>Stake more, earn more. Automated rewards.</p>
-</div>
+      <div class="phase">
+        <strong>Phase 4 — Full Ecosystem (Q4 2025)</strong>
+        <p class="muted">NFT marketplace development, full app launch, whitepaper v2.0, burning mechanism & global expansion.</p>
+      </div>
 
-<!-- WHITEPAPER -->
-<div class="section" id="whitepaper">
-    <h2>📄 BTW WHITEPAPER</h2>
+      <div class="phase">
+        <strong>Phase 5 — Long Term (2026+)</strong>
+        <p class="muted">Multichain expansion, global streaming partnerships, experimental metaverse cinema and debit-card integrations.</p>
+      </div>
+    </div>
+  </section>
 
-    <p>The official BTW Token whitepaper outlines:</p>
-    <p>
-        • Tokenomics<br>
-        • Ecosystem Design<br>
-        • Watch-to-Earn Framework<br>
-        • Staking Mechanics<br>
-        • Roadmap<br>
-        • Community Governance
-    </p>
-</div>
+  <!-- COMMUNITY -->
+  <section id="community" class="section">
+    <h2>🌐 Community & Contact</h2>
+    <div class="box">
+      <p class="muted">Join the FB community for updates, airdrops, and launch announcements.</p>
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <a class="btn" href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT" target="_blank">Join FB Group</a>
+        <a class="btn outline" href="mailto:hello@bitwatchtv.example">Contact / Support</a>
+      </div>
 
-<!-- ROADMAP -->
-<div class="section" id="roadmap">
-    <h2>🗺️ BTW TOKEN ROADMAP</h2>
+      <div style="margin-top:18px;display:flex;gap:18px;flex-wrap:wrap;justify-content:center;align-items:center">
+        <div style="text-align:center">
+          <img src="bitwatchtv_qr.png" alt="QR" style="width:140px;border-radius:8px;border:2px solid rgba(0,204,255,0.06)"><br>
+          <div class="small muted">Scan QR → Open Platform</div>
+        </div>
 
-    <p><b>Phase 1</b><br>
-        • Token Creation<br>
-        • Smart Contract Audit<br>
-        • Website Launch</p>
+        <div style="min-width:260px">
+          <div style="font-weight:800;color:var(--accent)">Contract Address</div>
+          <div class="contract" style="margin-top:8px">0x0000000000000000000000000000000000000000</div>
+          <div class="small muted" style="margin-top:8px">Replace with real contract before token sale; verify on BscScan.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <p><b>Phase 2</b><br>
-        • BTW Staking<br>
-        • App Integration<br>
-        • Airdrops</p>
+</main>
 
-    <p><b>Phase 3</b><br>
-        • Marketplace Launch<br>
-        • Partnerships<br>
-        • CEX Listing</p>
-</div>
-
-<!-- COMMUNITY -->
-<div class="section" id="community">
-    <h2>Join the Community</h2>
-    <p>FB Group, Updates, Events, Airdrops, Movie Releases</p>
-
-    <a href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share" class="btn" target="_blank">
-        JOIN FB GROUP
-    </a>
-</div>
-
-<!-- FOOTER -->
-<div class="section">
-    <p>© 2025 BitWatchTV — All Rights Reserved</p>
-</div>
+<footer>
+  <div style="max-width:var(--maxw);margin:auto;padding:12px 18px">
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+      <div class="small muted">© 2025 BitWatchTV</div>
+      <div class="small muted">•</div>
+      <div class="small muted">Terms • Privacy</div>
+    </div>
+    <div style="margin-top:10px;color:var(--muted);font-size:13px">This page is for informational purposes only. Tokenomics, staking, and rewards are subject to the final smart contract and audit.</div>
+  </div>
+</footer>
 
 </body>
 </html>
