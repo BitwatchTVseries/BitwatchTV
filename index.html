@@ -1,233 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>BitWatchTV — Earn While Watching</title>
-
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #ffffff; /* WHITE BG */
-        color: #333;
-    }
+  :root{
+    --lavender-dark: #6d4bb8;
+    --lavender: #8b6bc9;
+    --lavender-light: #d9cfff;
+    --card-bg: #f4eaff;
+    --white: #ffffff;
+    --text: #222;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    background:var(--white);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
 
-    /* HEADER */
-    header {
-        background: #ffffff;
-        padding: 15px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 5000;
-        border-bottom: 1px solid #eee;
-    }
+  /* HEADER */
+  header{
+    position:sticky;
+    top:0;
+    z-index:99999;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:14px 18px;
+    background:var(--white);
+    border-bottom:1px solid rgba(0,0,0,0.06);
+  }
+  .logo{font-weight:800;color:var(--lavender-dark);font-size:26px;letter-spacing:0.3px}
 
-    /* BITWATCHTV TEXT LOGO */
-    .logo {
-        font-size: 26px;
-        font-weight: bold;
-        color: #7e57c2; /* premium lavender */
-        letter-spacing: 1px;
-    }
+  /* top nav (desktop) */
+  .top-nav{display:flex;gap:18px;align-items:center}
+  .top-nav a{color:var(--lavender-dark);text-decoration:none;font-weight:700;font-size:14px}
+  .top-nav a:hover{text-decoration:underline}
 
-    /* WATCH MOVIES BUTTON */
-    .watch-btn {
-        background: #6a42b8; /* dark premium lavender */
-        padding: 10px 18px;
-        color: white;
-        border-radius: 6px;
-        text-decoration: none;
-        font-size: 15px;
-        font-weight: bold;
-    }
+  /* watch button */
+  .watch-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--lavender-dark);color:#fff;padding:10px 16px;border-radius:10px;
+    text-decoration:none;font-weight:800;font-size:14px;box-shadow:0 8px 20px rgba(109,75,184,0.12);
+  }
+  .watch-btn:hover{background:var(--lavender)}
 
-    /* MENU BUTTON (☰) */
-    .menu-btn {
-        font-size: 28px;
-        cursor: pointer;
-        color: #6a42b8;
-        padding-left: 15px;
-    }
+  /* burger (mobile) */
+  .burger{display:none;background:transparent;border:0;font-size:26px;color:var(--lavender-dark);cursor:pointer}
 
-    /* SIDE MENU */
-    nav {
-        position: fixed;
-        top: 0;
-        right: -260px;
-        width: 260px;
-        height: 100%;
-        background: #d8c2ff; /* lavender */
-        padding: 25px;
-        transition: right 0.45s ease-out;
-        box-shadow: -4px 0 12px rgba(0,0,0,0.25);
-        z-index: 999999; /* highest */
-    }
+  /* side menu */
+  #overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,0.44);backdrop-filter:blur(4px);
+    display:none;z-index:99998;
+  }
+  nav#sideMenu{
+    position:fixed;top:0;right:-340px;width:340px;height:100%;
+    background:linear-gradient(180deg,var(--lavender-light),var(--lavender));
+    padding:26px;transition:right .32s cubic-bezier(.2,.9,.2,1);
+    box-shadow:-8px 0 30px rgba(0,0,0,0.18);z-index:99999;overflow:auto;
+  }
+  nav#sideMenu .close{color:var(--lavender-dark);text-align:right;font-size:20px;cursor:pointer;margin-bottom:8px}
+  nav#sideMenu a{display:block;color:#2a1a66;text-decoration:none;font-weight:800;font-size:18px;padding:12px;border-radius:8px}
+  nav#sideMenu a:hover{background:rgba(255,255,255,0.12)}
 
-    nav a {
-        display: block;
-        margin: 18px 0;
-        text-decoration: none;
-        color: #4a2f91;
-        font-size: 18px;
-        font-weight: bold;
-    }
+  /* main layout */
+  main{max-width:980px;margin:0 auto;padding:34px 18px 80px}
+  section{margin:28px 0}
+  .section-title{display:block;text-align:center;color:var(--lavender-dark);font-size:28px;margin-bottom:12px;font-weight:800}
 
-    /* OVERLAY */
-    #overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.45);
-        display: none;
-        z-index: 900000;
-    }
+  .hero{padding-top:10px;text-align:center}
+  .hero p{max-width:760px;margin:10px auto;color:#444;font-size:15px}
 
-    /* SECTIONS */
-    section {
-        padding: 100px 25px 60px;
-        text-align: center;
-    }
+  /* card */
+  .card{
+    background:var(--card-bg);border-radius:12px;padding:18px;border:1px solid rgba(139,107,201,0.14);
+    box-shadow:0 8px 22px rgba(109,75,184,0.06);margin:12px 0;text-align:left;
+  }
+  .small-title{font-weight:800;color:var(--lavender-dark);margin-bottom:8px}
+  ul{padding-left:18px;margin:8px 0}
+  li{margin:8px 0}
 
-    h2 {
-        color: #6a42b8;
-        font-size: 26px;
-        margin-bottom: 15px;
-    }
+  .community{ text-align:center;margin-top:6px }
+  .community .btn{display:inline-block;margin:8px 8px;padding:12px 18px;background:var(--lavender-dark);color:#fff;border-radius:10px;text-decoration:none;font-weight:800}
 
-    .card {
-        background: #f4eaff;
-        padding: 20px;
-        border-radius: 8px;
-        margin-bottom: 18px;
-        text-align: left;
-        border: 1px solid #e2ceff;
-    }
+  /* responsive */
+  @media (max-width:900px){
+    .section-title{font-size:22px}
+  }
+  @media (max-width:720px){
+    .top-nav{display:none}
+    .burger{display:block}
+    .logo{font-size:22px}
+  }
 
-    .join-btn {
-        background: #6a42b8;
-        color: #fff;
-        padding: 12px 20px;
-        display: inline-block;
-        border-radius: 6px;
-        margin-top: 10px;
-        text-decoration: none;
-        font-weight: bold;
-    }
+  /* accessibility focus */
+  a:focus{outline:3px solid rgba(139,107,201,0.25);outline-offset:2px}
 </style>
-
 </head>
-
 <body>
 
-<!-- HEADER -->
+<!-- header -->
 <header>
-    <div class="logo">BitWatchTV</div>
-    <a href="https://iwatch.space" class="watch-btn" target="_blank">WATCH MOVIES</a>
-    <div class="menu-btn" onclick="openMenu()">☰</div>
+  <div class="logo">BitWatchTV</div>
+
+  <nav class="top-nav" aria-hidden="true">
+    <a href="#home">Home</a>
+    <a href="#earn">Ways to Earn</a>
+    <a href="#packages">Packages</a>
+    <a href="#ranks">Ranks</a>
+    <a href="#token">BTW Token</a>
+    <a href="#contact">Community</a>
+  </nav>
+
+  <div style="display:flex;gap:10px;align-items:center">
+    <a class="watch-btn" href="https://iwatch.space/" target="_blank" rel="noopener noreferrer" aria-label="Watch Movies - opens iwatch.space">
+      <span style="font-size:16px">▶</span> Watch Movies
+    </a>
+
+    <button class="burger" aria-label="Open menu" onclick="openMenu()">☰</button>
+  </div>
 </header>
 
-<!-- SIDE MENU -->
-<nav id="sideMenu">
-    <a href="#home" onclick="closeMenu()">Home</a>
-    <a href="#about" onclick="closeMenu()">About Us</a>
-    <a href="#token" onclick="closeMenu()">BTW Token</a>
-    <a href="#ranking" onclick="closeMenu()">Ranking</a>
-    <a href="#community" onclick="closeMenu()">Join Community</a>
+<!-- overlay + side menu -->
+<div id="overlay" onclick="closeMenu()" aria-hidden="true"></div>
+
+<nav id="sideMenu" aria-hidden="true" aria-label="Main menu">
+  <div class="close" onclick="closeMenu()">✖</div>
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#earn" onclick="closeMenu()">Ways to Earn</a>
+  <a href="#packages" onclick="closeMenu()">Packages</a>
+  <a href="#ranks" onclick="closeMenu()">Ranks</a>
+  <a href="#token" onclick="closeMenu()">BTW Token</a>
+  <a href="#contact" onclick="closeMenu()">Community</a>
+  <a href="https://iwatch.space/" target="_blank" class="watch-btn" style="display:inline-flex;justify-content:center;margin-top:12px" onclick="closeMenu()">▶ Watch Movies</a>
+
+  <hr style="margin:18px 0;border:none;height:1px;background:rgba(0,0,0,0.06)" />
+  <a href="https://www.facebook.com/share/1A3brBURpi/" target="_blank" onclick="closeMenu()">Facebook Page</a>
+  <a href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT" target="_blank" onclick="closeMenu()">Facebook Group</a>
 </nav>
 
-<!-- OVERLAY -->
-<div id="overlay" onclick="closeMenu()"></div>
-
-<!-- HOME -->
-<section id="home">
-    <h2>Earn While Watching Movies</h2>
-    <p>Welcome to BitWatchTV — the platform that pays you while enjoying movies!</p>
-</section>
-
-<!-- ABOUT US -->
-<section id="about">
-    <h2>About Us</h2>
-    <div class="card">
-        <p>BitWatchTV is a next-generation movie platform designed to reward users while they watch.  
-        Our mission is to build a decentralized entertainment ecosystem where every viewer can benefit.</p>
+<main>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <span class="section-title">Watch Movies & Earn Unlimited Income</span>
+    <p>Welcome to BitWatchTV — the platform that pays viewers while they enjoy movies. Watch, engage, and earn BTW tokens and rewards through our Unilevel Infinity program.</p>
+    <div style="margin-top:14px">
+      <a class="watch-btn" href="https://iwatch.space/" target="_blank" rel="noopener noreferrer"><span style="font-size:16px">▶</span> Watch Movies</a>
     </div>
-</section>
+  </section>
 
-<!-- BTW TOKEN -->
-<section id="token">
-    <h2>About BTW Token</h2>
-
+  <!-- ABOUT US -->
+  <section id="about">
+    <span class="section-title">ABOUT US — BITWATCHTV</span>
     <div class="card">
-        <h3>🎬 What is BTW Token?</h3>
-        <p>BTW Token is the official digital token of BitWatchTV designed for utility inside the ecosystem.</p>
+      <p><strong>BitWatchTV</strong> is a next-generation movie and entertainment platform that combines streaming technology with smart digital rewards. We allow users to watch movies, earn rewards, and participate in an innovative infinity-earning system—all while enjoying quality entertainment.</p>
+      <p class="muted"><strong>Our platform</strong> is built for simplicity, accessibility, and long-term sustainability, offering viewers and partners a unique opportunity in the digital entertainment economy.</p>
+      <p class="muted"><strong>BitWatchTV is not just a movie site — it is an ecosystem designed for:</strong></p>
+      <ul>
+        <li>🎬 Movie entertainment</li>
+        <li>💸 Digital rewards</li>
+        <li>📱 Global accessibility</li>
+        <li>🔗 Blockchain-powered token utility (BTW Token)</li>
+      </ul>
     </div>
 
     <div class="card">
-        <h3>🔥 BTW Token Utility</h3>
+      <div class="small-title">OUR MISSION</div>
+      <p>To revolutionize entertainment by merging movie streaming with real earning opportunities—empowering every viewer to benefit from the platform they enjoy.</p>
+      <p>We aim to make BitWatchTV:</p>
+      <ul>
+        <li>✨ A platform where watching becomes rewarding</li>
+        <li>✨ A sustainable ecosystem that supports users, creators, and partners</li>
+        <li>✨ A community-driven space powered by transparency, innovation, and real utility</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="small-title">OUR VISION</div>
+      <p>To become the world’s leading entertainment-rewards ecosystem, where millions of people earn while enjoying the content they love.</p>
+      <p>Our long-term vision includes:</p>
+      <ul>
+        <li>🚀 A global streaming platform powered by BTW Token</li>
+        <li>🌍 International content expansion</li>
+        <li>🎥 Partnerships with film producers and digital creators</li>
+        <li>💠 A complete utility ecosystem using BTW Token for movies, perks, and digital goods</li>
+        <li>🔐 A secure, transparent, and sustainable earning network</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WAYS TO EARN -->
+  <section id="earn">
+    <span class="section-title">🔥 BITWATCHTV — WAYS TO EARN 🔥</span>
+    <div class="card">
+      <div class="small-title">Unilevel Infinity Program</div>
+      <div style="margin-top:10px">
+        <div class="small-title">📌 LEVEL INCOME</div>
         <ul>
-            <li>Used to unlock premium movies</li>
-            <li>Can be used for staking rewards</li>
-            <li>Redeemable for exclusive content</li>
-            <li>Part of the rewards pool for active users</li>
-            <li>Access to VIP features and events</li>
+          <li><strong>Level 1:</strong> 2 USDT</li>
+          <li><strong>Level 2 – Level 5:</strong> 1 USDT each level</li>
         </ul>
+      </div>
+      <p class="muted"><strong>Earn up to infinity level</strong> — the system pays on unlimited depth.</p>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages">
+    <span class="section-title">Packages</span>
+
+    <div class="card">
+      <div class="small-title">🟦 STARTER MINER (SM) — 20 USDT</div>
+      <p>Package Includes:</p>
+      <ul>
+        <li>25 codes</li>
+        <li>Potential Value: <strong>25 × ₱100 = ₱2,500</strong></li>
+      </ul>
     </div>
 
     <div class="card">
-        <h3>🚀 Future Roadmap</h3>
-        <ul>
-            <li>BTW DEX Listing</li>
-            <li>In-app BTW payments</li>
-            <li>BTW staking platform</li>
-            <li>Cross-chain compatibility</li>
-            <li>Movie-exclusive NFT collection</li>
-        </ul>
-    </div>
-
-</section>
-
-<!-- RANKING -->
-<section id="ranking">
-    <h2>Full Ranking</h2>
-
-    <div class="card">
-        <p><strong>Starter Miner (SM)</strong><br>₱1,000 Package — 25 Codes</p>
+      <div class="small-title">🟩 BLOCK MINER (BM)</div>
+      <p><strong>Requirement:</strong> 30 direct Starter</p>
+      <p><strong>Earnings:</strong> 1 USDT per Starter Package (up to infinity)</p>
     </div>
 
     <div class="card">
-        <p><strong>Chain Builder</strong><br>25 Direct Referral</p>
+      <div class="small-title">🟧 CHAIN BUILDER (CB)</div>
+      <p><strong>Requirement:</strong> 25 direct Block Miner</p>
+      <p><strong>Earnings:</strong> 2 USDT per Starter Package (up to infinity)</p>
     </div>
 
     <div class="card">
-        <p><strong>Genesis Validator</strong><br>Top achievers of the network</p>
+      <div class="small-title">🟥 MASTER VALIDATOR (MV)</div>
+      <p><strong>Requirement:</strong> 20 direct Chain Builder</p>
+      <p><strong>Earnings:</strong> 3 USDT per Starter Package (up to infinity)</p>
     </div>
-</section>
 
-<!-- JOIN COMMUNITY -->
-<section id="community">
-    <h2>Join Our Community</h2>
+    <div class="card">
+      <div class="small-title">👑 GENESIS VALIDATOR (GV)</div>
+      <p>Top Premium Rank — Exclusive for Investors</p>
+      <p><strong>Benefits:</strong></p>
+      <ul>
+        <li>Earn up to <strong>5% monthly bonus</strong></li>
+        <li>300 codes × ₱100 = <strong>₱30,000</strong> potential value</li>
+        <li>Minimum Capital Share: <strong>200 USDT</strong></li>
+      </ul>
+    </div>
+  </section>
 
-    <a class="join-btn" href="https://facebook.com" target="_blank">Facebook Page</a><br><br>
-    <a class="join-btn" href="https://facebook.com/groups" target="_blank">Facebook Group</a>
-</section>
+  <!-- RANKS -->
+  <section id="ranks">
+    <span class="section-title">Full Ranking</span>
+    <div class="card">
+      <ul>
+        <li>Starter Miner (SM)</li>
+        <li>Block Miner (BM)</li>
+        <li>Chain Builder (CB)</li>
+        <li>Master Validator (MV)</li>
+        <li>Genesis Validator (GV)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BTW TOKEN -->
+  <section id="token">
+    <span class="section-title">BTW TOKEN (COMPLETE SECTION)</span>
+
+    <div class="card">
+      <div class="small-title">💠 What is BTW Token?</div>
+      <p><strong>BTW (BitWatchTV Token)</strong> is the official utility token of BitWatchTV. It is not a hype coin, but a real-use digital token designed to power the entire BitWatchTV ecosystem.</p>
+    </div>
+
+    <div class="card">
+      <div class="small-title">🎬 Real Utility — Not Just a Crypto</div>
+      <ul>
+        <li><strong>Movie Access & Premium Films:</strong> Use BTW to unlock premium movies, TV shows, upcoming releases, and VIP content.</li>
+        <li><strong>Rewards & Bonuses:</strong> Earn BTW from activities, watching movies, sharing referrals, and participating in promos.</li>
+        <li><strong>Ecosystem Payments:</strong> Use BTW across BitWatchTV features, games, merchandise, and future partner apps.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="small-title">💹 Strong Value Model</div>
+      <ul>
+        <li>Real usage inside the movie platform</li>
+        <li>Growing viewer base</li>
+        <li>Entertainment-driven demand</li>
+        <li>Limited supply with real circulation</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="small-title">🚀 Why BTW Token is Powerful</div>
+      <ul>
+        <li>Massive adoption potential — everyone watches movies</li>
+        <li>Daily usage = daily circulation</li>
+        <li>Community-driven growth</li>
+        <li>Designed for long-term sustainability</li>
+        <li>Supports future BitWatchTV features (NFT access, pay-per-view, creator payouts)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="small-title">🛠 Technology</div>
+      <p>BTW Token runs on a fast, low-fee blockchain (final chain to be announced) designed for seamless microtransactions inside the BitWatchTV ecosystem.</p>
+    </div>
+
+    <div class="card">
+      <div class="small-title">📌 Summary</div>
+      <p><strong>BTW Token = Movie Access + Rewards + Real Use + Scalable Ecosystem</strong></p>
+      <p>This is not hype — this is utility.</p>
+    </div>
+
+    <div class="card">
+      <div class="small-title">📊 Tokenomics</div>
+      <ul>
+        <li><strong>Token Name:</strong> BitWatchTV</li>
+        <li><strong>Symbol:</strong> BTW</li>
+        <li><strong>Total Supply:</strong> 1,000,000,000 (1 Billion)</li>
+        <li><strong>Decimals:</strong> 18</li>
+        <li><strong>Network:</strong> Binance Smart Chain (BEP-20)</li>
+        <li><strong>Contract Address:</strong> To be released</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="small-title">📦 Allocation (Example)</div>
+      <ul>
+        <li>40% — Rewards & Ecosystem</li>
+        <li>20% — Liquidity</li>
+        <li>15% — Development</li>
+        <li>10% — Marketing</li>
+        <li>10% — Founders</li>
+        <li>5% — Reserve</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section id="contact">
+    <span class="section-title">Community & Links</span>
+    <div class="card center">
+      <p>Stay updated — join our official channels:</p>
+      <div class="community">
+        <a class="btn" href="https://www.facebook.com/share/1A3brBURpi/" target="_blank" rel="noopener noreferrer">Facebook Page</a>
+        <a class="btn" href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT" target="_blank" rel="noopener noreferrer">Facebook Group</a>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <script>
-function openMenu() {
-    document.getElementById("sideMenu").style.right = "0px";
-    document.getElementById("overlay").style.display = "block";
-}
+  const sideMenu = document.getElementById('sideMenu');
+  const overlay = document.getElementById('overlay');
 
-function closeMenu() {
-    document.getElementById("sideMenu").style.right = "-260px";
-    document.getElementById("overlay").style.display = "none";
-}
+  function openMenu(){
+    sideMenu.style.right = '0';
+    overlay.style.display = 'block';
+    sideMenu.setAttribute('aria-hidden','false');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    sideMenu.style.right = '-340px';
+    overlay.style.display = 'none';
+    sideMenu.setAttribute('aria-hidden','true');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  // close when clicking nav links inside sideMenu
+  sideMenu.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ closeMenu(); }
+  });
+
+  // ESC key closes menu
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeMenu();
+  });
 </script>
 
 </body>
