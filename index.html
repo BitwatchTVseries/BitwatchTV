@@ -6,204 +6,292 @@
 <title>BitWatchTV</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f3e8ff; /* Lavender */
-        color: #2b0057;
-    }
+/* ====== MAIN LAVENDER THEME COLORS (Exact Match) ====== */
+:root {
+  --lavender-bg: #F3E6FF;      /* exact background */
+  --lavender-soft: #F7EDFF;    /* soft blocks */
+  --lavender-border: #EAD3FF;  /* subtle highlight */
+  --deep-purple: #7B1FFF;      /* buttons & text contrast */
+  --deep-purple-2: #A729FF;    /* gradient top */
+}
 
-    header {
-        background: #b57bff;
-        padding: 20px;
-        text-align: center;
-        color: white;
-        font-size: 32px;
-        font-weight: bold;
-    }
+/* ====== GENERAL PAGE ====== */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--lavender-bg);
+  color: #2A0466;
+}
 
-    /* WATCH NOW BUTTON UNDER LOGO */
-    .watch-now {
-        margin-top: 10px;
-        display: inline-block;
-        padding: 12px 25px;
-        background: white;
-        color: #6a00ff;
-        border-radius: 8px;
-        font-weight: bold;
-        text-decoration: none;
-    }
+/* ====== HEADER AREA ====== */
+header {
+  text-align: center;
+  padding: 25px 15px 10px;
+}
 
-    /* BURGER MENU */
-    .menu-btn {
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        font-size: 28px;
-        background: #6a00ff;
-        color: white;
-        padding: 8px 12px;
-        border-radius: 6px;
-        cursor: pointer;
-        z-index: 999;
-    }
+/* Text logo only */
+.logo-text {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--deep-purple);
+  letter-spacing: 1px;
+}
 
-    nav {
-        position: fixed;
-        top: 0;
-        left: -260px;
-        width: 250px;
-        height: 100%;
-        background: #d3b4ff;
-        padding-top: 70px;
-        transition: 0.3s;
-    }
+/* ====== WATCH NOW BUTTON ====== */
+.watch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--deep-purple);
+  color: white;
+  padding: 16px 28px;
+  border-radius: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 15px;
+}
 
-    nav a {
-        display: block;
-        padding: 15px;
-        color: #2b0057;
-        text-decoration: none;
-        font-weight: bold;
-        border-bottom: 1px solid #c6a3ff;
-    }
+.watch-btn span {
+  font-size: 22px;
+}
 
-    nav a:hover {
-        background: #b57bff;
-        color: white;
-    }
+/* ====== SECTION BOXES ====== */
+.section {
+  background: var(--lavender-soft);
+  padding: 25px;
+  margin: 18px;
+  border-radius: 18px;
+  border: 2px solid var(--lavender-border);
+}
 
-    .section {
-        padding: 25px;
-    }
+/* ====== TITLES ====== */
+h2 {
+  color: var(--deep-purple);
+  margin-bottom: 12px;
+}
 
-    h2 {
-        color: #5a00d4;
-        border-left: 5px solid #b57bff;
-        padding-left: 10px;
-    }
+h3 {
+  color: var(--deep-purple);
+  margin-top: 18px;
+}
 
-    /* FOOTER */
-    footer {
-        background: #b57bff;
-        color: white;
-        text-align: center;
-        padding: 30px 10px;
-        margin-top: 40px;
-    }
+/* ====== WAYS TO EARN CONTENT ====== */
+ul {
+  margin-top: 5px;
+  padding-left: 20px;
+  font-size: 17px;
+}
 
-    footer a {
-        color: yellow;
-        font-weight: bold;
-        text-decoration: none;
-        display: block;
-        margin-top: 10px;
-    }
+/* ====== FULL RANKING ====== */
+.rank-list li {
+  margin-bottom: 6px;
+}
 
-    .community-btn {
-        margin-top: 15px;
-        padding: 12px 20px;
-        background: white;
-        color: #6a00ff;
-        border-radius: 8px;
-        text-decoration: none;
-        display: inline-block;
-        font-weight: bold;
-    }
+/* ====== JOIN COMMUNITY BUTTON ====== */
+.join-btn {
+  display: inline-block;
+  background: white;
+  padding: 14px 25px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--deep-purple);
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+/* ====== BURGER MENU ====== */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: var(--deep-purple);
+  padding: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.menu-btn div {
+  width: 30px;
+  height: 4px;
+  background: white;
+  margin: 6px 0;
+  border-radius: 3px;
+}
+
+/* ====== SLIDE-IN MENU ====== */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: linear-gradient(180deg, #A729FF, #7B1FFF);
+  padding: 30px 20px;
+  transition: 0.35s ease;
+  z-index: 998;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.side-menu a {
+  display: block;
+  padding: 12px 0;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  margin-bottom: 10px;
+}
+
+/* Overlay when menu opens */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  z-index: 997;
+}
+
+.overlay.show {
+  display: block;
+}
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<!-- ====== BURGER MENU BUTTON ====== -->
+<div class="menu-btn" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
 
-<nav id="sideMenu">
-    <a href="#about">About Us</a>
-    <a href="#tokenomics">Tokenomics</a>
-    <a href="#earn">Ways to Earn</a>
-    <a href="#ranks">Full Ranking</a>
-    <a href="#contact">Contact</a>
-</nav>
+<!-- ====== SLIDE MENU ====== -->
+<div class="side-menu" id="sideMenu">
+  <a href="#about">About Us</a>
+  <a href="#earn">Ways to Earn</a>
+  <a href="#ranking">Full Ranking</a>
+  <a href="#token">Tokenomics</a>
+  <a href="#community">Join Community</a>
+</div>
 
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<!-- ====== HEADER ====== -->
 <header>
-    BitWatchTV
-    <br>
-    <a href="#" class="watch-now">▶ Watch Now</a>
+  <div class="logo-text">BitWatchTV</div>
+
+  <a href="https://iwatch.space/" class="watch-btn">
+    <span>▶</span> WATCH NOW
+  </a>
 </header>
 
-<!-- ABOUT US -->
+<!-- ====== ABOUT US ====== -->
 <div class="section" id="about">
-    <h2>About Us</h2>
-    <p><strong>Mission:</strong> To revolutionize entertainment by rewarding users while watching movies.</p>
-    <p><strong>Vision:</strong> To become the world’s most rewarding movie-based earning platform.</p>
+  <h2>About Us</h2>
+
+  <h3>MISSION</h3>
+  <p>To revolutionize digital entertainment by allowing users to earn while watching, providing sustainable income opportunities powered by blockchain technology.</p>
+
+  <h3>VISION</h3>
+  <p>To become the world’s leading watch-to-earn ecosystem where entertainment, rewards, and innovation come together for everyone.</p>
 </div>
 
-<!-- TOKENOMICS -->
-<div class="section" id="tokenomics">
-    <h2>Tokenomics</h2>
-    <p><strong>Token Name:</strong> BitWatchTV</p>
-    <p><strong>Symbol:</strong> BTW</p>
-    <p><strong>Total Supply:</strong> 1,000,000,000 (1 Billion)</p>
-    <p><strong>Decimal:</strong> 18</p>
-    <p><strong>Network:</strong> BSC BEP-20</p>
-</div>
-
-<!-- WAYS TO EARN -->
+<!-- ====== WAYS TO EARN ====== -->
 <div class="section" id="earn">
-    <h2>Ways to Earn – Infinity Level Program</h2>
+  <h2>🔥 BITWATCHTV — WAYS TO EARN 🔥</h2>
+  <p><b>Unilevel Infinity Program</b></p>
 
-    <p><strong>LEVEL INCOME:</strong></p>
-    <ul>
-        <li>Level 1: 2 USDT</li>
-        <li>Level 2 – Level 5: 1 USDT each level</li>
-        <li>Earn up to INFINITY LEVEL — no limit!</li>
-    </ul>
+  <h3>📌 LEVEL INCOME</h3>
+  <ul>
+    <li>Level 1: 2 USDT</li>
+    <li>Level 2 – Level 5: 1 USDT each level</li>
+  </ul>
 
-    <h3>Starter Miner (SM) — 20 USDT</h3>
-    <ul>
-        <li>25 codes</li>
-        <li>Potential Value: 25 USDT</li>
-    </ul>
+  <h3>🟦 STARTER MINER (SM) — 20 USDT</h3>
+  <ul>
+    <li>25 codes</li>
+    <li>Potential Value: 25 × ₱100 = ₱2,500</li>
+  </ul>
 
-    <h3>Chain Builder — 25 directs only</h3>
-    <ul>
-        <li>Unlock higher commissions</li>
-        <li>Boost your infinity income</li>
-    </ul>
+  <h3>🟩 BLOCK MINER (BM)</h3>
+  <ul>
+    <li>Requirement: 30 direct Starter</li>
+    <li>Earnings: 1 USDT per Starter Package (up to infinity)</li>
+  </ul>
+
+  <h3>🟧 CHAIN BUILDER (CB)</h3>
+  <ul>
+    <li>Requirement: 25 direct Block Miner</li>
+    <li>Earnings: 2 USDT per Starter Package (up to infinity)</li>
+  </ul>
+
+  <h3>🟥 MASTER VALIDATOR (MV)</h3>
+  <ul>
+    <li>Requirement: 20 direct Chain Builder</li>
+    <li>Earnings: 3 USDT per Starter Package (up to infinity)</li>
+  </ul>
+
+  <h3>👑 GENESIS VALIDATOR (GV)</h3>
+  <ul>
+    <li>Top Premium Rank (Exclusive for Investors)</li>
+    <li>Earn up to 5% monthly bonus</li>
+    <li>300 codes × ₱100 = ₱30,000 potential value</li>
+    <li>Minimum Capital Share: 200 USDT</li>
+  </ul>
+
+  <p><b>👍 Simple Ranks. Simple Requirements. Unlimited Earning Potential.</b></p>
 </div>
 
-<!-- FULL RANKING -->
-<div class="section" id="ranks">
-    <h2>Full Ranking</h2>
-    <ul>
-        <li>Starter Miner</li>
-        <li>Pro Miner</li>
-        <li>Elite Miner</li>
-        <li>Master Miner</li>
-        <li>Genesis Validator</li>
-    </ul>
+<!-- ====== FULL RANKING ====== -->
+<div class="section" id="ranking">
+  <h2>Full Ranking</h2>
+  <ul class="rank-list">
+    <li>Starter Miner (SM)</li>
+    <li>Block Miner (BM)</li>
+    <li>Chain Builder (CB)</li>
+    <li>Master Validator (MV)</li>
+    <li>Genesis Validator (GV)</li>
+  </ul>
 </div>
 
-<!-- FOOTER -->
-<footer id="contact">
-    <p>Join the BitWatchTV Community</p>
+<!-- ====== TOKENOMICS ====== -->
+<div class="section" id="token">
+  <h2>Tokenomics</h2>
+  <ul>
+    <li><b>Token Name:</b> BitWatchTV</li>
+    <li><b>Symbol:</b> BTW</li>
+    <li><b>Total Supply:</b> 1,000,000,000</li>
+    <li><b>Decimal:</b> 18</li>
+    <li><b>Network:</b> BSC BEP20</li>
+  </ul>
+</div>
 
-    <a href="#" class="community-btn">Join Community</a>
+<!-- ====== COMMUNITY ====== -->
+<div class="section" id="community" style="text-align:center;">
+  <h2>Join the BitWatchTV Community</h2>
 
-    <a href="#">Facebook Page</a>
-    <a href="#">Facebook Group</a>
+  <a href="#" class="join-btn">Join Community</a>
 
-    <p style="margin-top:20px; font-size:12px;">© 2025 BitWatchTV. All Rights Reserved.</p>
-</footer>
+  <p style="margin-top:20px; font-size:20px; font-weight:bold;">
+    <a href="https://facebook.com/BitWatchTV" style="color:#FFD700; text-decoration:none;">Facebook Page</a><br><br>
+    <a href="https://facebook.com/groups/BitWatchTV" style="color:#FFD700; text-decoration:none;">Facebook Group</a>
+  </p>
+</div>
 
 <script>
 function toggleMenu() {
-    let menu = document.getElementById("sideMenu");
-    if (menu.style.left === "0px") {
-        menu.style.left = "-260px";
-    } else {
-        menu.style.left = "0px";
-    }
+  document.getElementById("sideMenu").classList.toggle("open");
+  document.getElementById("overlay").classList.toggle("show");
 }
 </script>
 
