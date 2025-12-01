@@ -1,222 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BitWatchTV</title>
-  <style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BitWatchTV Official</title>
+
+<style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #070c1a;
-      color: white;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0d1b3d;
+        color: white;
     }
 
     header {
-      background: #06225c;
-      padding: 18px 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+        background: #0f2a62;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
-    .logo {
-      font-size: 26px;
-      font-weight: 700;
-      color: #4fa3ff;
+    header h1 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: bold;
     }
 
+    /* WATCH NOW BUTTON */
+    .watch-now {
+        background: #1db954;
+        padding: 10px 16px;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .watch-now i {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    /* BURGER MENU */
     .burger {
-      cursor: pointer;
-      font-size: 32px;
+        font-size: 28px;
+        cursor: pointer;
+        display: block;
     }
 
-    .menu {
-      display: none;
-      flex-direction: column;
-      background: #06225c;
-      padding: 20px;
-      position: absolute;
-      top: 70px;
-      right: 20px;
-      width: 240px;
-      border-radius: 12px;
+    nav {
+        display: none;
+        background: #0f2a62;
+        padding: 15px;
     }
 
-    .menu a {
-      color: white;
-      text-decoration: none;
-      padding: 12px 0;
-      font-size: 18px;
+    nav a {
+        display: block;
+        padding: 10px 0;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        border-bottom: 1px solid #1a3b7a;
     }
 
+    /* Sections */
     section {
-      padding: 40px 25px;
+        padding: 25px;
     }
 
     h2 {
-      color: #4fa3ff;
-      font-size: 28px;
+        text-align: center;
+        font-size: 26px;
+        margin-bottom: 10px;
+        color: #5aa0ff;
     }
 
     .card {
-      background: #0c1b38;
-      padding: 25px;
-      border-radius: 12px;
-      margin-top: 20px;
-      border-left: 5px solid #3f8cff;
-      box-shadow: 0 0 10px #00000050;
+        background: #142850;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #1e3f80;
     }
 
-    .rank-title {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 10px;
+    .token-box, .roadmap-box {
+        background: #14345c;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #1c4d8c;
     }
 
-    .btn-watch {
-      display: inline-block;
-      background: #4fa3ff;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 15px;
-    }
+</style>
 
-  </style>
+<script>
+function toggleMenu() {
+    const nav = document.getElementById("mobileMenu");
+    nav.style.display = nav.style.display === "block" ? "none" : "block";
+}
+</script>
 </head>
+
 <body>
 
 <header>
-  <div class="logo">BITWATCHTV</div>
-  <div class="burger" onclick="toggleMenu()">☰</div>
+    <h1>BitWatchTV</h1>
+
+    <!-- WATCH NOW BUTTON nasa unahan -->
+    <a class="watch-now" href="https://iwatch.space/" target="_blank">
+        <i>▶</i> Watch Now
+    </a>
+
+    <div class="burger" onclick="toggleMenu()">☰</div>
 </header>
 
-<div class="menu" id="menu">
-  <a href="#about">About Us</a>
-  <a href="#mission">Mission</a>
-  <a href="#vision">Vision</a>
-  <a href="#btw">BTW Token</a>
-  <a href="#tokenomics">Tokenomics</a>
-  <a href="#roadmap">Roadmap</a>
-  <a href="#earn">Ways to Earn</a>
-  <a href="#community">Join Community</a>
-  <a href="https://iwatch.space/" target="_blank">Watch Now</a>
-</div>
+<!-- CLICKABLE MENU -->
+<nav id="mobileMenu">
+    <a href="#about">About Us</a>
+    <a href="#earn">Ways to Earn</a>
+    <a href="#ranks">Ranks</a>
+    <a href="#token">Token Info</a>
+    <a href="#tokenomics">Tokenomics</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#community">Join Community</a>
+</nav>
 
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-  }
-</script>
-
+<!-- ABOUT US -->
 <section id="about">
-  <h2>About Us</h2>
-  <div class="card">
-    BitWatchTV is a digital entertainment platform designed to allow users to enjoy movies while earning through a sustainable rewards system.
-  </div>
+    <h2>About Us</h2>
+    <div class="card">
+        <p>
+            BitWatchTV is a next-generation digital entertainment platform where users can
+            <b>watch movies, enjoy content, and earn BTW Tokens while watching.</b>
+        </p>
+        <p>
+            Our mission is to combine entertainment + blockchain rewards for a fun, simple, and powerful user experience.
+        </p>
+    </div>
 </section>
 
-<section id="mission">
-  <h2>Mission</h2>
-  <div class="card">To provide affordable digital entertainment and community-driven content while offering opportunities for users to earn.</div>
-</section>
-
-<section id="vision">
-  <h2>Vision</h2>
-  <div class="card">To become the leading rewards-based digital entertainment platform in the Philippines and worldwide.</div>
-</section>
-
-<section id="btw">
-  <h2>BTW Token Info</h2>
-  <div class="card">
-    <p><b>Token Name:</b> BitWatchTV</p>
-    <p><b>Symbol:</b> BTW</p>
-    <p><b>Total Supply:</b> 1,000,000,000</p>
-    <p><b>Decimal:</b> 18</p>
-    <p><b>Network:</b> BSC (BEP-20)</p>
-  </div>
-</section>
-
-<section id="tokenomics">
-  <h2>Tokenomics</h2>
-  <div class="card">
-    <p>• 40% Ecosystem</p>
-    <p>• 20% Liquidity</p>
-    <p>• 20% Marketing</p>
-    <p>• 10% Team</p>
-    <p>• 10% Reserve</p>
-  </div>
-</section>
-
-<section id="roadmap">
-  <h2>Roadmap</h2>
-  <div class="card">
-    <p><b>Phase 1:</b> Launch Platform, Release Starter Miner</p>
-    <p><b>Phase 2:</b> BTW Token Listing</p>
-    <p><b>Phase 3:</b> Mobile App + More Earn Features</p>
-    <p><b>Phase 4:</b> Global Expansion</p>
-  </div>
-</section>
-
+<!-- WAYS TO EARN -->
 <section id="earn">
-  <h2>🔥 BITWATCHTV — WAYS TO EARN 🔥</h2>
+    <h2>🔥 Ways to Earn</h2>
 
-  <div class="card">
-    <div class="rank-title">📌 LEVEL INCOME</div>
-    <p>• Level 1: <b>2 USDT</b></p>
-    <p>• Level 2 – Level 5: <b>1 USDT</b> each level</p>
-    <p class="earn">Earn Up To INFINITY LEVELS</p>
-  </div>
-
-  <div class="card">
-    <div class="rank-title">🟦 STARTER MINER (SM) — 20 USDT</div>
-    <p>• 25 Codes</p>
-    <p>• Potential Value: 25 × ₱100 = ₱2,500</p>
-  </div>
-
-  <div class="card">
-    <div class="rank-title">🟩 BLOCK MINER (BM)</div>
-    <p>Requirement: 30 direct Starter</p>
-    <p>Earnings: 1 USDT per Starter Package (up to infinity)</p>
-  </div>
-
-  <div class="card">
-    <div class="rank-title">🟧 CHAIN BUILDER (CB)</div>
-    <p>Requirement: 25 direct Block Miner</p>
-    <p>Earnings: 2 USDT per Starter Package (up to infinity)</p>
-  </div>
-
-  <div class="card">
-    <div class="rank-title">🟥 MASTER VALIDATOR (MV)</div>
-    <p>Requirement: 20 direct Chain Builder</p>
-    <p>Earnings: 3 USDT per Starter Package (up to infinity)</p>
-  </div>
-
-  <div class="card">
-    <div class="rank-title">👑 GENESIS VALIDATOR (GV)</div>
-    <p>Top Premium Rank (Exclusive for Investors)</p>
-    <p>• Earn up to 5% monthly bonus</p>
-    <p>• 300 codes × ₱100 = ₱30,000 potential value</p>
-    <p>• Minimum Capital Share: 200 USDT</p>
-  </div>
+    <div class="card">
+        <h3>📌 Level Income</h3>
+        <p>• Level 1: <b>2 USDT</b></p>
+        <p>• Level 2 – Level 5: <b>1 USDT each level</b></p>
+        <p><b>Unlimited depth earnings</b> through Unilevel Infinity System.</p>
+    </div>
 </section>
 
+<!-- RANKS -->
+<section id="ranks">
+    <h2>Ranks</h2>
+
+    <div class="card">
+        <h3>🟦 Starter Miner (SM) — 20 USDT</h3>
+        <p>Includes 25 codes</p>
+        <p>Potential Value: ₱2,500</p>
+    </div>
+
+    <div class="card">
+        <h3>🟩 Block Miner (BM)</h3>
+        <p>Requirement: 30 direct Starter</p>
+        <p>Earnings: 1 USDT per Starter Package (up to infinity)</p>
+    </div>
+
+    <div class="card">
+        <h3>🟧 Chain Builder (CB)</h3>
+        <p>Requirement: 25 direct Block Miner</p>
+        <p>Earnings: 2 USDT per Starter Package (up to infinity)</p>
+    </div>
+
+    <div class="card">
+        <h3>🟥 Master Validator (MV)</h3>
+        <p>Requirement: 20 direct Chain Builder</p>
+        <p>Earnings: 3 USDT per Starter Package (up to infinity)</p>
+    </div>
+
+    <div class="card">
+        <h3>👑 Genesis Validator (GV)</h3>
+        <p>Earn up to 5% monthly bonus</p>
+        <p>300 codes × ₱100 = ₱30,000 potential value</p>
+        <p>Minimum Capital: 200 USDT</p>
+    </div>
+</section>
+
+<!-- TOKEN INFO -->
+<section id="token">
+    <h2>BTW Token Information</h2>
+    <div class="token-box">
+        <p><b>Token Name:</b> BitWatchTV</p>
+        <p><b>Symbol:</b> BTW</p>
+        <p><b>Total Supply:</b> 1,000,000,000</p>
+        <p><b>Decimals:</b> 18</p>
+        <p><b>Network:</b> Binance Smart Chain (BEP20)</p>
+    </div>
+</section>
+
+<!-- TOKENOMICS -->
+<section id="tokenomics">
+    <h2>Tokenomics</h2>
+    <div class="token-box">
+        <p>• 30% — Rewards & Watch-to-Earn</p>
+        <p>• 25% — Liquidity</p>
+        <p>• 20% — Development</p>
+        <p>• 15% — Marketing</p>
+        <p>• 10% — Team & Operations</p>
+    </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+    <h2>Roadmap</h2>
+    <div class="roadmap-box">
+        <p>📍 Q1 — Launch of BTW Token + Website</p>
+        <p>📍 Q2 — Watch-to-Earn System Activation</p>
+        <p>📍 Q3 — Mobile App Release</p>
+        <p>📍 Q4 — Global Expansion + New Movie Partners</p>
+    </div>
+</section>
+
+<!-- COMMUNITY -->
 <section id="community">
-  <h2>Join Our Community</h2>
-  <div class="card">
-    <a href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT" target="_blank" class="btn-watch">Join FB Group</a>
-  </div>
-</section>
-
-<section>
-  <a href="https://iwatch.space/" target="_blank" class="btn-watch">WATCH NOW</a>
+    <h2>Join Community</h2>
+    <div class="card">
+        <p>FB Group:</p>
+        <a href="https://www.facebook.com/groups/fovero.vpn.official/?ref=share&mibextid=NSMWBT"
+           style="color:#5aa0ff; font-size:20px;" target="_blank">
+           👉 Click to Join Community
+        </a>
+    </div>
 </section>
 
 </body>
