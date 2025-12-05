@@ -100,6 +100,18 @@
 
   /* accessibility focus */
   a:focus{outline:3px solid rgba(139,107,201,0.25);outline-offset:2px}
+header {
+    display: flex;
+    justify-content: space-between; /* MENU SA RIGHT */
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.top-nav {
+    display: flex;
+    gap: 20px;
+    margin-left: auto; /* PARA TULAKIN SA RIGHT */
+}
 </style>
 </head>
 <body>
@@ -107,9 +119,8 @@
 <!-- header -->
 <header>
     <div class="logo">
-    <div class="logo-text">BitWatchTV</div>
-</div>
-</header>
+        <div class="logo-text">BitWatchTV</div>
+    </div>
 
   <nav class="top-nav" aria-hidden="true">
     <a href="#home">Home</a>
@@ -123,7 +134,7 @@
 
 
     <button class="burger" aria-label="Open menu" onclick="openMenu()">☰</button>
-  </div>
+  
 </header>
 
 <!-- overlay + side menu -->
